@@ -220,7 +220,7 @@ $stack-height-lg: ceil($level-size-lg * .4222 + $level-distance-lg * 2 * $level-
   transition: all $transition-time;
 
   @media (min-width: $breakpoint-xs) {
-    padding-left: 2em;
+    padding-left: 1.5em;
     padding-right: 0;
     text-align: right;
   }
@@ -264,6 +264,13 @@ $stack-height-lg: ceil($level-size-lg * .4222 + $level-distance-lg * 2 * $level-
       transform: translateY($level-distance-lg * .9 * 2);
     }
   }
+
+  svg {
+    display: inline-block;
+    height: .75em;
+    width: .75em;
+    margin-right: .25em;
+  }
 }
 
 .stack__nav-item--one {
@@ -302,11 +309,17 @@ $stack-height-lg: ceil($level-size-lg * .4222 + $level-distance-lg * 2 * $level-
   left: $level-size;
   transform: translateY(-50%);
 
+  display: none;
+
   @media (min-width: $breakpoint-sm) {
     left: $level-size-sm;
   }
 
   @media (min-width: $breakpoint-lg) {
     left: $level-size-lg;
+  }
+
+  &.is-visible {
+    display: block;
   }
 }

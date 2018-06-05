@@ -12,6 +12,8 @@ class MapModal {
     this.modalEl = modalEl;
     this.mapEl = this.modalEl.querySelector('[data-map]');
 
+    this.MODAL_OPEN_FLAG = 'is-open';
+
     // map attributes
     this.MAP_CENTER = {
       lat: 50.128754,
@@ -28,6 +30,7 @@ class MapModal {
     this.initZoomers();
     this.initOverlay();
     this.addMarkers();
+    this.initModalTogglers();
   }
 
   initMap() {
@@ -73,6 +76,42 @@ class MapModal {
 
   // should be overridden by subclasses
   addMarkers() {
+  }
+
+  openModal() {
+    this.modalEl.classList.add(this.MODAL_OPEN_FLAG);
+  }
+
+  closeModal() {
+    this.modalEl.classList.remove(this.MODAL_OPEN_FLAG);
+  }
+
+  initModalTogglers() {
+    // closers
+    let closers = [...this.modalEl.querySelectorAll('[data-map-modal-close]')];
+    closers.forEach((closer) => {
+      closer.addEventListener('click', (e) => {
+        this.closeModal();
+
+        e.preventDefault();
+        e.stopPropagation();
+        return false;
+      });
+    });
+
+    // openers
+    let openers = [...document.querySelectorAll(`[data-map-modal-open]`)];
+    openers.forEach((opener) => {
+      if (opener.getAttribute('href').replace('#', '') === this.modalEl.id) {
+        opener.addEventListener('click', (e) => {
+          this.openModal();
+
+          e.preventDefault();
+          e.stopPropagation();
+          return false;
+        });
+      }
+    });
   }
 }
 
@@ -162,7 +201,7 @@ class TravelModal extends MapModal {
       // set a click handler to open the corresponding infowindow
       marker.addListener('click', () => {
         // close other infowindows
-        this.infowindows.forEach(infowindow => infowindow.close());
+        this.infowindows.forEach((infowindow) => infowindow.close());
         // open infowindow
         infowindow.open(this.map, marker);
       });

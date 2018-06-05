@@ -1,13 +1,26 @@
 .c-modal {
   background-color: $color-white;
   position: fixed;
-  z-index: 1000;
-  height: 100%;
   width: 100%;
   left: 0;
   right: 0;
   bottom: 0;
   top: 0;
+
+  z-index: -1;
+  height: 0;
+  overflow: hidden;
+  transition: transform $transition-time, opacity $transition-time;
+  transform: scale(.9);
+  opacity: 0;
+
+  &.is-open {
+    height: 100%;
+    transform: translate3d(0, 0, 0);
+    z-index: 1000;
+    overflow: visible;
+    opacity: 1;
+  }
 }
 
 // html flag

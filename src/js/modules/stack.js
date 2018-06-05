@@ -4,6 +4,7 @@ export default class Stack {
     this.BREAKPOINT_SM = '800px';
     this.BREAKPOINT_LG = '1400px';
     this.FLAGS = ['is-level1', 'is-level2', 'is-level3'];
+    this.ZOOMER_FLAG = 'is-visible';
     this.levelOrder = [];
 
     // main JS is run on DOMContentLoaded
@@ -16,6 +17,7 @@ export default class Stack {
         this.levels = [...this.el.querySelectorAll('[data-stack-item]')];
         this.navWrapper = this.el.querySelector('[data-stack-nav]');
         this.navItems = [...this.el.querySelectorAll('[data-stack-nav-item]')];
+        this.zoomers = [...this.el.querySelectorAll('[data-map-modal-open]')];
 
         if (this.levels.length && this.navWrapper && this.navItems.length) {
           // set up click events
@@ -82,6 +84,11 @@ export default class Stack {
         navItem.classList.add(this.FLAGS[idx]);
       }
     });
+
+    // update zoomers
+    let activeIndex = this.levels.findIndex((level) => level.isSameNode(this.levelOrder[0]));
+    this.zoomers.forEach((zoomer) => zoomer.classList.remove(this.ZOOMER_FLAG));
+    this.zoomers[activeIndex].classList.add(this.ZOOMER_FLAG);
   }
 
   setNavItemsWidth() {

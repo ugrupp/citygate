@@ -4,12 +4,12 @@
     {
       id: 'travel',
     },
-    //- {
-    //-   id: 'around',
-    //- },
-    //- {
-    //-   id: 'campusmile',
-    //- },
+    {
+      id: 'around',
+    },
+    {
+      id: 'campusmile',
+    },
   ]
 
 //- global includes
@@ -25,10 +25,11 @@ html
     .stack-wrapper
       //- stack animation
       .stack(data-stack="")
-        a(href="#").stack__zoom
-          .c-icon-default
-            +svg('zoom')
-            .u-invisible Vergrößern
+        each modal in modals
+          a(href="#map-modal-" + modal.id data-map-modal-open="").stack__zoom
+            .c-icon-default
+              +svg('zoom')
+              .u-invisible Vergrößern
 
 
         .stack__items
@@ -37,9 +38,15 @@ html
           .stack__item.stack__item--three#stack-level-3(data-stack-item="")
 
         .stack__nav(data-stack-nav="")
-          a(href="#stack-level-1" data-stack-nav-item="").stack__nav-item.stack__nav-item--one Die Erreichbarkeit
-          a(href="#stack-level-2" data-stack-nav-item="").stack__nav-item.stack__nav-item--two Die Umgebung
-          a(href="#stack-level-3" data-stack-nav-item="").stack__nav-item.stack__nav-item--three Die „Campus Mile“
+          a(href="#stack-level-1" data-stack-nav-item="").stack__nav-item.stack__nav-item--one
+            +svg('right-chevron')
+            | Die Erreichbarkeit
+          a(href="#stack-level-2" data-stack-nav-item="").stack__nav-item.stack__nav-item--two
+            +svg('right-chevron')
+            | Die Umgebung
+          a(href="#stack-level-3" data-stack-nav-item="").stack__nav-item.stack__nav-item--three
+            +svg('right-chevron')
+            | Die „Campus Mile“
 
       //- map modals
       .c-modals
@@ -49,7 +56,7 @@ html
             .c-modal__map(data-map=modal.id)
 
             //- close button
-            a(href="#").c-modal__close
+            a(href="javascript:void(0);" data-map-modal-close).c-modal__close
               .c-icon-default.c-icon-default--large
                 +svg('close')
                 .u-invisible Schließen
