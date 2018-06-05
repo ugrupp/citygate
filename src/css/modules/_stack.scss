@@ -1,0 +1,312 @@
+// general
+$hover-scale: 1.02;
+$shadow-color: rgba(0, 0, 0, .8);
+$level-skew-factor: 17;
+$level-distance-distortion: .91; // since $level-distance is distorted in 3D space
+
+// xs
+$level-size: 220px;
+$level-distance: 50px;
+$stack-offset-x: floor($level-skew-factor * 180 / 10000 * $level-size);
+$stack-height: ceil($level-size * .4222 + $level-distance * 2 * $level-distance-distortion); // .4222 corresponds to 65deg rotation
+
+// sm
+$level-size-sm: 400px;
+$level-distance-sm: 80px;
+$stack-offset-x-sm: floor($level-skew-factor * 180 / 10000 * $level-size-sm);
+$stack-height-sm: ceil($level-size-sm * .4222 + $level-distance-sm * 2 * $level-distance-distortion);
+
+// lg
+$level-size-lg: 784px;
+$level-distance-lg: 142px;
+$stack-offset-x-lg: floor($level-skew-factor * 180 / 10000 * $level-size-lg);
+$stack-height-lg: ceil($level-size-lg * .4222 + $level-distance-lg * 2 * $level-distance-distortion);
+
+
+// Wrapper
+.stack {
+  position: relative; // for zoom icon
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  @media (min-width: $breakpoint-xs) {
+    height: $stack-height;
+    flex-direction: row;
+    align-items: stretch;
+    justify-content: center;
+  }
+
+  @media (min-width: $breakpoint-sm) {
+    height: $stack-height-sm;
+  }
+
+  @media (min-width: $breakpoint-lg) {
+    height: $stack-height-lg;
+  }
+}
+
+// Items (levels)
+.stack__items {
+  flex-shrink: 0;
+  position: relative;
+
+  transform: rotateX(65deg) skew(-$level-skew-factor * 1deg);
+  transform-origin: top center;
+  transform-style: preserve-3d;
+  width: $level-size;
+  height: $level-size;
+  margin-left: $stack-offset-x;
+
+  @media (min-width: $breakpoint-sm) {
+    width: $level-size-sm;
+    height: $level-size-sm;
+    margin-left: $stack-offset-x-sm;
+  }
+
+  @media (min-width: $breakpoint-lg) {
+    width: $level-size-lg;
+    height: $level-size-lg;
+    margin-left: $stack-offset-x-lg;
+  }
+}
+
+.stack__item {
+  position: relative;
+  height: 100%;
+  width: 100%;
+  cursor: pointer;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  transform-style: preserve-3d;
+  transition: all $transition-time;
+  box-shadow: $level-size / 100 $level-size / 100 ($level-size / 10) $shadow-color;
+
+  @media (min-width: $breakpoint-sm) {
+    box-shadow: $level-size-sm / 100 $level-size-sm / 100 ($level-size-sm / 10) $shadow-color;
+  }
+
+  @media (min-width: $breakpoint-lg) {
+    box-shadow: $level-size-lg / 100 $level-size-lg / 100 ($level-size-lg / 10) $shadow-color;
+  }
+
+  &:not(:first-child) {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+  }
+
+  &.is-level1 {
+    transform: translateZ(0);
+
+    &:hover {
+      transform: scale($hover-scale);
+    }
+  }
+
+  &.is-level2 {
+    transform: translateZ(-$level-distance);
+
+    &:hover {
+      transform: scale($hover-scale) translateZ(-$level-distance);
+    }
+
+    @media (min-width: $breakpoint-sm) {
+      transform: translateZ(-$level-distance-sm);
+
+      &:hover {
+        transform: scale($hover-scale) translateZ(-$level-distance-sm);
+      }
+    }
+
+    @media (min-width: $breakpoint-lg) {
+      transform: translateZ(-$level-distance-lg);
+
+      &:hover {
+        transform: scale($hover-scale) translateZ(-$level-distance-lg);
+      }
+    }
+  }
+
+  &.is-level3 {
+    transform: translateZ(-$level-distance * 2);
+
+    &:hover {
+      transform: scale($hover-scale) translateZ(-$level-distance * 2);
+    }
+
+    @media (min-width: $breakpoint-sm) {
+      transform: translateZ(-$level-distance-sm * 2);
+
+      &:hover {
+        transform: scale($hover-scale) translateZ(-$level-distance-sm * 2);
+      }
+    }
+
+    @media (min-width: $breakpoint-lg) {
+      transform: translateZ(-$level-distance-lg * 2);
+
+      &:hover {
+        transform: scale($hover-scale) translateZ(-$level-distance-lg * 2);
+      }
+    }
+  }
+}
+
+.stack__item--one {
+  background-color: $color-one;
+}
+
+.stack__item--two {
+  background-color: $color-two;
+}
+
+.stack__item--three {
+  background-color: $color-three;
+}
+
+.stack__img {
+  display: block;
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+
+
+// Navigation
+.stack__nav {
+  width: 200px; // estimated width, which should be overridden by JS
+  height: ceil(20px + $level-distance * 2 * $level-distance-distortion); // height must be set until horizontal view kicks in. 20px = 1rem + .25em
+  position: relative;
+
+  @media (min-width: $breakpoint-xs) {
+    height: auto;
+    margin-top: ($level-distance * $level-distance-distortion * .25);
+    margin-left: -$stack-offset-x * .15;
+  }
+
+  @media (min-width: $breakpoint-sm) {
+    margin-top: ($level-distance-sm * $level-distance-distortion * .25);
+    margin-left: -$stack-offset-x-sm * .15;
+  }
+
+  @media (min-width: $breakpoint-lg) {
+    margin-top: ($level-distance-lg * $level-distance-distortion * .5);
+    margin-left: -$stack-offset-x-lg * .15;
+  }
+}
+
+.stack__nav-item {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: block;
+  white-space: nowrap;
+
+  font-size: 1rem;
+  line-height: 1;
+  text-decoration: none;
+  text-transform: uppercase;
+  @include font-smoothing;
+  padding-bottom: .25em;
+  border-bottom: 1px solid currentColor;
+
+  padding-left: 1em;
+  padding-right: 1em;
+  text-align: center;
+
+  transition: all $transition-time;
+
+  @media (min-width: $breakpoint-xs) {
+    padding-left: 2em;
+    padding-right: 0;
+    text-align: right;
+  }
+
+  @media (min-width: $breakpoint-sm) {
+    font-size: 1.375rem;
+  }
+
+  @media (min-width: $breakpoint-lg) {
+    padding-left: 3em;
+  }
+
+  .has-calculated-dimensions & {
+    right: 0;
+  }
+
+  &.is-level1 {
+    transform: translateY(0);
+  }
+
+  &.is-level2 {
+    transform: translateY($level-distance * .9);
+
+    @media (min-width: $breakpoint-sm) {
+      transform: translateY($level-distance-sm * .9);
+    }
+
+    @media (min-width: $breakpoint-lg) {
+      transform: translateY($level-distance-lg * .9);
+    }
+  }
+
+  &.is-level3 {
+    transform: translateY($level-distance * .9 * 2);
+
+    @media (min-width: $breakpoint-sm) {
+      transform: translateY($level-distance-sm * .9 * 2);
+    }
+
+    @media (min-width: $breakpoint-lg) {
+      transform: translateY($level-distance-lg * .9 * 2);
+    }
+  }
+}
+
+.stack__nav-item--one {
+  &,
+  &:hover,
+  &:focus,
+  &:active {
+    color: $color-one;
+  }
+}
+
+.stack__nav-item--two {
+  &,
+  &:hover,
+  &:focus,
+  &:active {
+    color: $color-two;
+  }
+}
+
+.stack__nav-item--three {
+  &,
+  &:hover,
+  &:focus,
+  &:active {
+    color: $color-three;
+  }
+}
+
+
+// Zoom
+.stack__zoom {
+  position: absolute;
+  top: 0;
+  z-index: 10;
+  left: $level-size;
+  transform: translateY(-50%);
+
+  @media (min-width: $breakpoint-sm) {
+    left: $level-size-sm;
+  }
+
+  @media (min-width: $breakpoint-lg) {
+    left: $level-size-lg;
+  }
+}

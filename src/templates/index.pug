@@ -1,0 +1,29 @@
+//- global includes
+include includes/_mixins
+
+doctype html
+html
+  //- head tag
+  include includes/head
+
+  //- body tag
+  body
+    .stack(data-stack="")
+      a(href="#").stack__zoom
+        .c-icon-default
+          +svg('zoom')
+          .u-invisible Vergrößern
+
+
+      .stack__items
+        .stack__item.stack__item--one#stack-level-1(data-stack-item="")
+        .stack__item.stack__item--two#stack-level-2(data-stack-item="")
+        .stack__item.stack__item--three#stack-level-3(data-stack-item="")
+
+      .stack__nav(data-stack-nav="")
+        a(href="#stack-level-1").stack__nav-item.stack__nav-item--one(data-stack-nav-item="") Die Erreichbarkeit
+        a(href="#stack-level-2").stack__nav-item.stack__nav-item--two(data-stack-nav-item="") Die Umgebung
+        a(href="#stack-level-3").stack__nav-item.stack__nav-item--three(data-stack-nav-item="") Die „Campus Mile“
+
+    //- scripts etc.
+    include includes/foot
