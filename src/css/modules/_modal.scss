@@ -1,0 +1,50 @@
+.c-modal {
+  background-color: $color-white;
+  position: fixed;
+  z-index: 1000;
+  height: 100%;
+  width: 100%;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 0;
+}
+
+// html flag
+.c-modal-open {
+  overflow: hidden;
+
+  body {
+    overflow: visible;
+    height: 100%;
+  }
+}
+
+// close icon
+.c-modal__close {
+  position: absolute;
+  right: 2rem;
+  top: 2rem;
+
+  @media (min-width: $breakpoint-lg) {
+    right: 4rem;
+    top: 4rem;
+  }
+}
+
+.c-modal__map {
+  background-color: #eee;
+  height: 100%;
+  width: 100%;
+}
+
+.c-modal__map-zoom {
+  position: absolute;
+  left: 2rem;
+  top: 50%;
+  transform: translateY(-50%);
+
+  @media (min-width: $breakpoint-lg) {
+    left: 4rem;
+  }
+}

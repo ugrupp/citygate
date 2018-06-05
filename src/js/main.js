@@ -11,6 +11,7 @@ import 'svgxuse';
 import 'babel-polyfill';
 
 // module imports
+import './modules/maps';
 import Stack from './modules/stack';
 
 // init modules

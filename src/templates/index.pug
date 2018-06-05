@@ -1,3 +1,17 @@
+//- data
+-
+  var modals = [
+    {
+      id: 'travel',
+    },
+    {
+      id: 'around',
+    },
+    {
+      id: 'campusmile',
+    },
+  ]
+
 //- global includes
 include includes/_mixins
 
@@ -8,22 +22,47 @@ html
 
   //- body tag
   body
-    .stack(data-stack="")
-      a(href="#").stack__zoom
-        .c-icon-default
-          +svg('zoom')
-          .u-invisible Vergrößern
+    .stack-wrapper
+      //- stack animation
+      .stack(data-stack="")
+        a(href="#").stack__zoom
+          .c-icon-default
+            +svg('zoom')
+            .u-invisible Vergrößern
 
 
-      .stack__items
-        .stack__item.stack__item--one#stack-level-1(data-stack-item="")
-        .stack__item.stack__item--two#stack-level-2(data-stack-item="")
-        .stack__item.stack__item--three#stack-level-3(data-stack-item="")
+        .stack__items
+          .stack__item.stack__item--one#stack-level-1(data-stack-item="")
+          .stack__item.stack__item--two#stack-level-2(data-stack-item="")
+          .stack__item.stack__item--three#stack-level-3(data-stack-item="")
 
-      .stack__nav(data-stack-nav="")
-        a(href="#stack-level-1").stack__nav-item.stack__nav-item--one(data-stack-nav-item="") Die Erreichbarkeit
-        a(href="#stack-level-2").stack__nav-item.stack__nav-item--two(data-stack-nav-item="") Die Umgebung
-        a(href="#stack-level-3").stack__nav-item.stack__nav-item--three(data-stack-nav-item="") Die „Campus Mile“
+        .stack__nav(data-stack-nav="")
+          a(href="#stack-level-1" data-stack-nav-item="").stack__nav-item.stack__nav-item--one Die Erreichbarkeit
+          a(href="#stack-level-2" data-stack-nav-item="").stack__nav-item.stack__nav-item--two Die Umgebung
+          a(href="#stack-level-3" data-stack-nav-item="").stack__nav-item.stack__nav-item--three Die „Campus Mile“
+
+      //- map modals
+      .c-modals
+        //- map modals
+        each modal in modals
+          .c-modal.c-modal--one(id="map-modal-" + modal.id data-map-modal=modal.id)
+            .c-modal__map#map-travel(data-map=modal.id)
+
+            //- close button
+            a(href="#").c-modal__close
+              .c-icon-default.c-icon-default--large
+                +svg('close')
+                .u-invisible Schließen
+
+            //- zoom control
+            .c-modal__map-zoom.c-zoom-control
+              a(href="#" data-map-zoom-in).c-zoom-control__control.c-zoom-control__control--in
+                +svg('plus')
+                .u-invisible Zoom in
+              a(href="#" data-map-zoom-out).c-zoom-control__control.c-zoom-control__control--out
+                +svg('minus')
+                .u-invisible Zoom out
+
 
     //- scripts etc.
     include includes/foot

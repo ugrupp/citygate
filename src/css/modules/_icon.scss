@@ -23,3 +23,13 @@
     }
   }
 }
+
+.c-icon-default--large {
+  svg {
+    @media (min-width: $breakpoint-lg) {
+      width: 3.125rem;
+      height: 3.125rem;
+      padding: 1.25rem;
+    }
+  }
+}
