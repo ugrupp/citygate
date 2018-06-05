@@ -4,12 +4,12 @@
     {
       id: 'travel',
     },
-    {
-      id: 'around',
-    },
-    {
-      id: 'campusmile',
-    },
+    //- {
+    //-   id: 'around',
+    //- },
+    //- {
+    //-   id: 'campusmile',
+    //- },
   ]
 
 //- global includes
@@ -46,7 +46,7 @@ html
         //- map modals
         each modal in modals
           .c-modal.c-modal--one(id="map-modal-" + modal.id data-map-modal=modal.id)
-            .c-modal__map#map-travel(data-map=modal.id)
+            .c-modal__map(data-map=modal.id)
 
             //- close button
             a(href="#").c-modal__close
