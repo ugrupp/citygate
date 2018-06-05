@@ -202,7 +202,8 @@ $stack-height-lg: ceil($level-size-lg * .4222 + $level-distance-lg * 2 * $level-
   position: absolute;
   top: 0;
   left: 0;
-  display: block;
+  display: flex;
+  align-items: center;
   white-space: nowrap;
 
   font-size: 1rem;
@@ -267,8 +268,8 @@ $stack-height-lg: ceil($level-size-lg * .4222 + $level-distance-lg * 2 * $level-
 
   svg {
     display: inline-block;
-    height: .75em;
-    width: .75em;
+    height: .5em;
+    width: .5em;
     margin-right: .25em;
   }
 }
