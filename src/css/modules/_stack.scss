@@ -171,7 +171,22 @@ $stack-height-lg: ceil($level-size-lg * .4222 + $level-distance-lg * 2 * $level-
   display: block;
   height: 100%;
   width: 100%;
-  object-fit: cover;
+  object-fit: contain;
+  object-position: center center;
+}
+
+// image zoom overlay. hidden when parent stack item isn't on top.
+.stack__img-zoom {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: none;
+
+  .is-level1 & {
+    display: block;
+  }
 }
 
 

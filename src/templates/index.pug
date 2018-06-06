@@ -3,12 +3,18 @@
   var modals = [
     {
       id: 'travel',
+      index: 'one',
+      title: 'Die Erreichbarkeit'
     },
     {
       id: 'around',
+      index: 'two',
+      title: 'Die Umgebung'
     },
     {
       id: 'campusmile',
+      index: 'three',
+      title: 'Die „Campus Mile“'
     },
   ]
 
@@ -33,9 +39,10 @@ html
 
 
         .stack__items
-          .stack__item.stack__item--one#stack-level-1(data-stack-item="")
-          .stack__item.stack__item--two#stack-level-2(data-stack-item="")
-          .stack__item.stack__item--three#stack-level-3(data-stack-item="")
+          each modal, index in modals
+            .stack__item(class="stack__item--" + modal.index data-stack-item="" id="stack-level-" + (index + 1))
+              img.stack__img(src="/images/layout/preview-" + modal.id + ".png" alt=modal.title)
+              a.stack__img-zoom(href="#map-modal-" + modal.id data-map-modal-open="")
 
         .stack__nav(data-stack-nav="")
           a(href="#stack-level-1" data-stack-nav-item="").stack__nav-item.stack__nav-item--one
