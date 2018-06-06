@@ -201,12 +201,16 @@ class TravelModal extends MapModal {
 
       this.markers.push(marker);
 
-      // set a click handler to open the corresponding infowindow
-      marker.addListener('click', () => {
+      // set mouseover handlers to open the corresponding infowindow
+      marker.addListener('mouseover', () => {
         // close other infowindows
         this.infowindows.forEach((infowindow) => infowindow.close());
         // open infowindow
         infowindow.open(this.map, marker);
+      });
+
+      marker.addListener('mouseout', () => {
+        infowindow.close();
       });
     });
   }
