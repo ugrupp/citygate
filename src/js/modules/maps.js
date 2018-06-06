@@ -1,4 +1,5 @@
-import LOCATIONS from './map-locations';
+import MAP_LOCATIONS from './map-locations';
+import MAP_STYLES from './map-styles';
 
 // Map modal parent class (will be extended)
 class MapModal {
@@ -20,6 +21,7 @@ class MapModal {
       lng: 8.691756,
     };
     this.initialZoom = 15;
+    this.mapStyles = null;
 
     this.markers = [];
     this.infowindows = [];
@@ -28,7 +30,6 @@ class MapModal {
   init() {
     this.initMap();
     this.initZoomers();
-    this.initOverlay();
     this.addMarkers();
     this.initModalTogglers();
   }
@@ -36,6 +37,7 @@ class MapModal {
   initMap() {
     this.map = new window.google.maps.Map(this.mapEl, {
       zoom: this.initialZoom,
+      styles: this.mapStyles,
       center: this.MAP_CENTER,
       disableDefaultUI: true,
     });
@@ -119,6 +121,7 @@ class MapModal {
 class TravelModal extends MapModal {
   constructor(modalEl) {
     super(modalEl);
+    this.mapStyles = MAP_STYLES.travel;
     this.init();
   }
 
@@ -175,7 +178,7 @@ class TravelModal extends MapModal {
     };
 
     // loop through locations and add markers
-    LOCATIONS[options.locationsKey].forEach((markerOptions) => {
+    MAP_LOCATIONS[options.locationsKey].forEach((markerOptions) => {
       // prepare the infowindow
       let infowindow = new window.google.maps.InfoWindow({
         content: `
@@ -215,6 +218,7 @@ class AroundModal extends MapModal {
     super(modalEl);
 
     this.initialZoom = 17;
+    this.mapStyles = MAP_STYLES.around;
     this.init();
   }
 }
@@ -225,6 +229,7 @@ class CampusMileModal extends MapModal {
     super(modalEl);
 
     this.initialZoom = 18;
+    this.mapStyles = MAP_STYLES.campusmile;
     this.init();
   }
 }
