@@ -264,25 +264,25 @@ class AroundModal extends MapModal {
     let circlesRadiuses = [
       100,
       300,
-      500
+      500,
     ];
 
     circlesRadiuses.forEach((radius) => {
       new window.google.maps.Circle({
         strokeWeight: 0,
-        fillColor: '#de0068',
-        fillOpacity: 0.2,
+        fillColor: '#fff',
+        fillOpacity: 0.3,
         map: this.map,
         center: this.MAP_CENTER,
         radius: radius,
       });
-    })
+    });
   }
 
   addMarkers() {
     // restaurants
     this.addMarkersFactory({
-      icon: 'ubahn',
+      icon: 'gastro',
       locationsKey: 'restaurants',
     });
   }
