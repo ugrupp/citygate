@@ -2,34 +2,35 @@
   display: block;
   transition: all $transition-time;
 
+  width: 1.75rem;
+  height: 1.75rem;
+  padding: .4rem;
+  background-color: $color-white;
+  border-radius: 50%;
+  box-shadow: 0 .125rem .5rem rgba(0, 0, 0, .5);
+
+  @media (min-width: $breakpoint-sm) {
+    box-shadow: 0 .25rem 1rem rgba(0, 0, 0, .5);
+    width: 2.5rem;
+    height: 2.5rem;
+    padding: .6rem;
+  }
+
   &:hover {
     transform: scale(1.05);
   }
 
   svg {
+    height: 100%;
+    width: 100%;
     display: block;
-    width: 1.75rem;
-    height: 1.75rem;
-    padding: .4rem;
-    background-color: $color-white;
-    border-radius: 50%;
-    box-shadow: 0 .125rem .5rem rgba(0, 0, 0, .5);
-
-    @media (min-width: $breakpoint-sm) {
-      box-shadow: 0 .25rem 1rem rgba(0, 0, 0, .5);
-      width: 2.5rem;
-      height: 2.5rem;
-      padding: .6rem;
-    }
   }
 }
 
 .c-icon-default--large {
-  svg {
-    @media (min-width: $breakpoint-lg) {
-      width: 3.125rem;
-      height: 3.125rem;
-      padding: 1.25rem;
-    }
+  @media (min-width: $breakpoint-lg) {
+    width: 3.125rem;
+    height: 3.125rem;
+    padding: 1.25rem;
   }
 }

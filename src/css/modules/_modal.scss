@@ -16,7 +16,7 @@
 
   &.is-open {
     height: 100%;
-    transform: translate3d(0, 0, 0);
+    transform: translateZ(10000px); // because buggy safari
     z-index: 1000;
     overflow: visible;
     opacity: 1;

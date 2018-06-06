@@ -310,7 +310,7 @@ $stack-height-lg: ceil($level-size-lg * .4222 + $level-distance-lg * 2 * $level-
   top: 0;
   z-index: 10;
   left: $level-size;
-  transform: translateY(-50%);
+  transform: translateY(-50%) translateZ(200px); // because buggy safari
 
   display: none;
 
