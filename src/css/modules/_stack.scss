@@ -24,6 +24,10 @@ $stack-height-lg: ceil($level-size-lg * .4222 + $level-distance-lg * 2 * $level-
 
 
 // Wrapper
+.stack-wrapper * {
+  box-sizing: content-box;
+}
+
 .stack {
   position: relative; // for zoom icon
 

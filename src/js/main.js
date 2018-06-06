@@ -13,6 +13,8 @@ import 'babel-polyfill';
 // module imports
 import './modules/maps';
 import Stack from './modules/stack';
+import Bubbles from './modules/bubbles';
 
 // init modules
 new Stack();
+new Bubbles();

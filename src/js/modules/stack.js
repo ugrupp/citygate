@@ -102,5 +102,3 @@ export default class Stack {
     this.navWrapper.classList.add('has-calculated-dimensions');
   }
 }
-
-new Stack();

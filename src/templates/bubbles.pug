@@ -1,0 +1,105 @@
+//- data
+-
+  var bubbles = [
+    {
+      icon: 'uhr',
+      title: 'Gut angebunden',
+      theme: 'yellow',
+      text: `
+        <ul>
+          <li>Maecenas faucibus mollis interdum. Aenean eu leo quam.</li>
+          <li>Donec ullamcorper nulla non metus auctor</li>
+          <li>Vestibulum id ligula porta felis euismod semper.</li>
+        </ul>
+      `
+    },
+    {
+      icon: 'zahnrad',
+      title: 'Lorem ipsum',
+      theme: 'green',
+      text: `
+        <ul>
+          <li>Maecenas faucibus mollis interdum. Aenean eu leo quam.</li>
+          <li>Donec ullamcorper nulla non metus auctor</li>
+          <li>Vestibulum id ligula porta felis euismod semper.</li>
+        </ul>
+      `
+    },
+    {
+      icon: 'globus',
+      title: 'Lorem ipsum',
+      theme: 'magenta',
+      text: `
+        <ul>
+          <li>Maecenas faucibus mollis interdum. Aenean eu leo quam.</li>
+          <li>Donec ullamcorper nulla non metus auctor</li>
+          <li>Vestibulum id ligula porta felis euismod semper.</li>
+        </ul>
+      `
+    },
+    {
+      icon: 'blasen',
+      title: 'Lorem ipsum',
+      theme: 'red',
+      text: `
+        <ul>
+          <li>Maecenas faucibus mollis interdum. Aenean eu leo quam.</li>
+          <li>Donec ullamcorper nulla non metus auctor</li>
+          <li>Vestibulum id ligula porta felis euismod semper.</li>
+        </ul>
+      `
+    },
+    {
+      icon: 'gluehbirne',
+      title: 'Lorem ipsum',
+      theme: 'orange',
+      text: `
+        <ul>
+          <li>Maecenas faucibus mollis interdum. Aenean eu leo quam.</li>
+          <li>Donec ullamcorper nulla non metus auctor</li>
+          <li>Vestibulum id ligula porta felis euismod semper.</li>
+        </ul>
+      `
+    },
+    {
+      icon: 'mensch',
+      title: 'Lorem ipsum',
+      theme: 'blue',
+      text: `
+        <ul>
+          <li>Maecenas faucibus mollis interdum. Aenean eu leo quam.</li>
+          <li>Donec ullamcorper nulla non metus auctor</li>
+          <li>Vestibulum id ligula porta felis euismod semper.</li>
+        </ul>
+      `
+    },
+  ]
+
+//- global includes
+include includes/_mixins
+
+doctype html
+html
+  //- head tag
+  include includes/head
+
+  //- body tag
+  body
+    .c-bubbles(data-bubbles="")
+      .c-bubbles__content
+        strong Büros und Services für Morgen
+        h1 City gate
+        strong Inspirierend und gut vernetzt
+
+      each bubble, index in bubbles
+        .c-bubble(class="c-bubble--" + bubble.theme + " c-bubble--" + (index + 1) data-bubble="")
+          .c-bubble__icon
+            +svg(bubble.icon)
+
+          .c-bubble__content
+            .c-bubble__title !{bubble.title}
+            .c-bubble__text !{bubble.text}
+
+
+    //- scripts etc.
+    include includes/foot
