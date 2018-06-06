@@ -311,4 +311,67 @@ export default {
       },
     },
   ],
+
+  campusRestaurants: [
+    {
+      name: 'Mensa Goethe Uni',
+      coords: {
+        lat: 50.127175,
+        lng: 8.666923,
+      },
+    },
+    {
+      name: 'Mensa essWERK',
+      coords: {
+        lat: 50.130454,
+        lng: 8.691685,
+      },
+    },
+  ],
+
+  universities: [
+    {
+      name: 'Goethe Uni Frankfurt',
+      text: `
+        <p>...</p>
+      `,
+      coords: {
+        lat: 50.127068,
+        lng: 8.667763,
+      },
+    },
+    {
+      name: 'FH Frankfurt',
+      text: `
+        <p>...</p>
+      `,
+      coords: {
+        lat: 50.128686,
+        lng: 8.691686,
+      },
+    },
+    {
+      name: 'Frankfurt School of Finance & Management',
+      text: `
+        <p>...</p>
+      `,
+      coords: {
+        lat: 50.132954,
+        lng: 8.680820,
+      },
+    },
+  ],
+
+  libraries: [
+    {
+      name: 'Deutsche Nationalbibliothek',
+      text: `
+        <p>...</p>
+      `,
+      coords: {
+        lat: 50.131040,
+        lng: 8.683750,
+      },
+    },
+  ],
 };

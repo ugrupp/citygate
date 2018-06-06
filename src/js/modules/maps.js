@@ -167,7 +167,8 @@ class MapModal {
       map: this.map,
       icon: {
         url: `https://raw.githubusercontent.com/ugrupp/citygate/master/src/images/layout/markers/${options.icon}.png`,
-        size: new window.google.maps.Size(22, 22),
+        size: options.size || new window.google.maps.Size(22, 22),
+        anchor: options.anchor,
       },
     };
 
@@ -257,10 +258,10 @@ class AroundModal extends MapModal {
     this.mapStyles = MAP_STYLES.around;
     this.init();
 
-    this.initCircles();
+    this.addCircles();
   }
 
-  initCircles() {
+  addCircles() {
     let circlesRadiuses = [
       100,
       300,
@@ -293,11 +294,49 @@ class CampusMileModal extends MapModal {
   constructor(modalEl) {
     super(modalEl);
 
-    this.initialZoom = 18;
     this.mapStyles = MAP_STYLES.campusmile;
     this.init();
   }
+
+  addMarkers() {
+    // Student citygate tower marker
+    this.addCitygateMarker();
+
+    // campus restaurants
+    this.addMarkersFactory({
+      icon: 'gastro',
+      locationsKey: 'campusRestaurants',
+    });
+
+    // universities
+    this.addMarkersFactory({
+      icon: 'uni',
+      locationsKey: 'universities',
+      size: new window.google.maps.Size(76, 105),
+    });
+
+    // libraries
+    this.addMarkersFactory({
+      icon: 'bibliothek',
+      locationsKey: 'libraries',
+      size: new window.google.maps.Size(87, 63),
+    });
+  }
+
+  // Student citygate tower marker
+  addCitygateMarker() {
+    this.markers.push(new window.google.maps.Marker({
+      map: this.map,
+      position: this.MAP_CENTER,
+      icon: {
+        url: 'https://raw.githubusercontent.com/ugrupp/citygate/master/src/images/layout/markers/gebaeude-uni.png',
+        size: new window.google.maps.Size(106, 116),
+        anchor: new window.google.maps.Point(106, 116),
+      },
+    }));
+  }
 }
+
 
 // Wrapper class around modals
 class MapModals {
