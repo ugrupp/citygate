@@ -194,7 +194,16 @@ export default {
       "elementType": "geometry",
       "stylers": [
         {
-          "color": "#ffffff"
+          "visibility": "simplified"
+        }
+      ]
+    },
+    {
+      "featureType": "road",
+      "elementType": "geometry.stroke",
+      "stylers": [
+        {
+          "weight": 1
         }
       ]
     },
