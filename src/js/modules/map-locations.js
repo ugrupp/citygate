@@ -374,4 +374,34 @@ export default {
       },
     },
   ],
+
+  poiPalmengarten: [
+    {
+      name: 'Palmengarten',
+      coords: {
+        lat: 50.122734,
+        lng: 8.658230,
+      },
+    },
+  ],
+
+  poiZoo: [
+    {
+      name: 'Zoo',
+      coords: {
+        lat: 50.116339,
+        lng: 8.699472,
+      },
+    },
+  ],
+
+  poiOpera: [
+    {
+      name: 'Alte Oper',
+      coords: {
+        lat: 50.116032,
+        lng: 8.671916,
+      },
+    },
+  ],
 };

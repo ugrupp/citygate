@@ -32,6 +32,7 @@ class MapModal {
     this.initZoomers();
     this.addMarkers();
     this.addAutobahnMarkers();
+    this.addPOIMarkers();
     this.initModalTogglers();
   }
 
@@ -75,6 +76,29 @@ class MapModal {
         this.map.setZoom(this.map.getZoom() - 1);
       });
     }
+  }
+
+  addPOIMarkers() {
+    // zoo
+    this.addMarkersFactory({
+      icon: 'zoo',
+      locationsKey: 'poiZoo',
+      size: new window.google.maps.Size(60, 44),
+    });
+
+    // opera
+    this.addMarkersFactory({
+      icon: 'alte-oper',
+      locationsKey: 'poiOpera',
+      size: new window.google.maps.Size(60, 43),
+    });
+
+    // palmengarten
+    this.addMarkersFactory({
+      icon: 'palmengarten',
+      locationsKey: 'poiPalmengarten',
+      size: new window.google.maps.Size(60, 42),
+    });
   }
 
   // Autobahn markers
