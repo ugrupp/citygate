@@ -288,4 +288,27 @@ export default {
       },
     },
   ],
+
+  restaurants: [
+    {
+      name: 'Megaron',
+      text: `
+        <p>Spohrstraße 26</p>
+      `,
+      coords: {
+        lat: 50.128115,
+        lng: 8.691089,
+      },
+    },
+    {
+      name: 'Umi Sushi',
+      text: `
+        <p>Friedberger Landstraße 140</p>
+      `,
+      coords: {
+        lat: 50.128495,
+        lng: 8.692858,
+      },
+    },
+  ],
 };

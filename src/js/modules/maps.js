@@ -31,6 +31,7 @@ class MapModal {
     this.initMap();
     this.initZoomers();
     this.addMarkers();
+    this.addAutobahnMarkers();
     this.initModalTogglers();
   }
 
@@ -76,6 +77,50 @@ class MapModal {
     }
   }
 
+  // Autobahn markers
+  addAutobahnMarkers() {
+    // a661
+    this.markers.push(new window.google.maps.Marker({
+      map: this.map,
+      position: {
+        lat: 50.141351,
+        lng: 8.706293,
+      },
+      icon: {
+        url: 'https://raw.githubusercontent.com/ugrupp/citygate/master/src/images/layout/markers/a661.png',
+        size: new window.google.maps.Size(73, 54),
+        anchor: new window.google.maps.Point(36, 27),
+      },
+    }));
+
+    // a66
+    this.markers.push(new window.google.maps.Marker({
+      map: this.map,
+      position: {
+        lat: 50.132671,
+        lng: 8.649927,
+      },
+      icon: {
+        url: 'https://raw.githubusercontent.com/ugrupp/citygate/master/src/images/layout/markers/a66.png',
+        size: new window.google.maps.Size(73, 54),
+        anchor: new window.google.maps.Point(36, 27),
+      },
+    }));
+  }
+
+  // Citygate tower marker
+  addCitygateMarker() {
+    this.markers.push(new window.google.maps.Marker({
+      map: this.map,
+      position: this.MAP_CENTER,
+      icon: {
+        url: 'https://raw.githubusercontent.com/ugrupp/citygate/master/src/images/layout/markers/gebaeude-icon.png',
+        size: new window.google.maps.Size(64, 90),
+        anchor: new window.google.maps.Point(64, 90),
+      },
+    }));
+  }
+
   // should be overridden by subclasses
   addMarkers() {
   }
@@ -115,6 +160,54 @@ class MapModal {
       }
     });
   }
+
+  // general factory method for adding standard markers (22x22px)
+  addMarkersFactory(options) {
+    let baseOptions = {
+      map: this.map,
+      icon: {
+        url: `https://raw.githubusercontent.com/ugrupp/citygate/master/src/images/layout/markers/${options.icon}.png`,
+        size: new window.google.maps.Size(22, 22),
+      },
+    };
+
+    // loop through locations and add markers
+    MAP_LOCATIONS[options.locationsKey].forEach((markerOptions) => {
+      // prepare the infowindow
+      let infowindow = new window.google.maps.InfoWindow({
+        content: `
+          <article class="c-map-infowindow">
+            <h1>${markerOptions.name}</h1>
+            <div>${markerOptions.text || ''}</div>
+          </article>
+        `,
+        maxWidth: 300,
+      });
+
+      // add it to the infowindow list
+      this.infowindows.push(infowindow);
+
+      // finally set the marker and add it to the markers list
+      let marker = new window.google.maps.Marker(Object.assign(baseOptions, {
+        position: markerOptions.coords,
+        title: markerOptions.name,
+      }));
+
+      this.markers.push(marker);
+
+      // set mouseover handlers to open the corresponding infowindow
+      marker.addListener('mouseover', () => {
+        // close other infowindows
+        this.infowindows.forEach((infowindow) => infowindow.close());
+        // open infowindow
+        infowindow.open(this.map, marker);
+      });
+
+      marker.addListener('mouseout', () => {
+        infowindow.close();
+      });
+    });
+  }
 }
 
 // Travel (level 1)
@@ -149,69 +242,8 @@ class TravelModal extends MapModal {
 
     // S-Bahn
     this.addMarkersFactory({
-      icon: 'tram',
+      icon: 'sbahn',
       locationsKey: 'sbahn',
-    });
-  }
-
-  // Citygate tower marker
-  addCitygateMarker() {
-    this.markers.push(new window.google.maps.Marker({
-      map: this.map,
-      position: this.MAP_CENTER,
-      icon: {
-        url: 'https://raw.githubusercontent.com/ugrupp/citygate/master/src/images/layout/markers/gebaeude-icon.png',
-        size: new window.google.maps.Size(64, 90),
-        anchor: new window.google.maps.Point(64, 90),
-      },
-    }));
-  }
-
-  // general factory method for adding standard markers (22x22px)
-  addMarkersFactory(options) {
-    let baseOptions = {
-      map: this.map,
-      icon: {
-        url: `https://raw.githubusercontent.com/ugrupp/citygate/master/src/images/layout/markers/${options.icon}.png`,
-        size: new window.google.maps.Size(22, 22),
-      },
-    };
-
-    // loop through locations and add markers
-    MAP_LOCATIONS[options.locationsKey].forEach((markerOptions) => {
-      // prepare the infowindow
-      let infowindow = new window.google.maps.InfoWindow({
-        content: `
-          <article class="c-map-infowindow">
-            <h1>${markerOptions.name}</h1>
-            <div>${markerOptions.text || ''}</div>
-          </article>
-        `,
-        maxWidth: 300,
-      });
-
-      // add it to the infowindow list
-      this.infowindows.push(infowindow);
-
-      // finally set the marker and it to the markers list
-      let marker = new window.google.maps.Marker(Object.assign(baseOptions, {
-        position: markerOptions.coords,
-        title: markerOptions.name,
-      }));
-
-      this.markers.push(marker);
-
-      // set mouseover handlers to open the corresponding infowindow
-      marker.addListener('mouseover', () => {
-        // close other infowindows
-        this.infowindows.forEach((infowindow) => infowindow.close());
-        // open infowindow
-        infowindow.open(this.map, marker);
-      });
-
-      marker.addListener('mouseout', () => {
-        infowindow.close();
-      });
     });
   }
 }
@@ -224,6 +256,35 @@ class AroundModal extends MapModal {
     this.initialZoom = 17;
     this.mapStyles = MAP_STYLES.around;
     this.init();
+
+    this.initCircles();
+  }
+
+  initCircles() {
+    let circlesRadiuses = [
+      100,
+      300,
+      500
+    ];
+
+    circlesRadiuses.forEach((radius) => {
+      new window.google.maps.Circle({
+        strokeWeight: 0,
+        fillColor: '#de0068',
+        fillOpacity: 0.2,
+        map: this.map,
+        center: this.MAP_CENTER,
+        radius: radius,
+      });
+    })
+  }
+
+  addMarkers() {
+    // restaurants
+    this.addMarkersFactory({
+      icon: 'ubahn',
+      locationsKey: 'restaurants',
+    });
   }
 }
 
