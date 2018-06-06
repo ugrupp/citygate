@@ -205,6 +205,8 @@ $stack-height-lg: ceil($level-size-lg * .4222 + $level-distance-lg * 2 * $level-
   display: flex;
   align-items: center;
   white-space: nowrap;
+  justify-content: center;
+  text-align: center;
 
   font-size: 1rem;
   line-height: 1;
@@ -216,7 +218,6 @@ $stack-height-lg: ceil($level-size-lg * .4222 + $level-distance-lg * 2 * $level-
 
   padding-left: 1em;
   padding-right: 1em;
-  text-align: center;
 
   transition: all $transition-time;
 
@@ -224,6 +225,7 @@ $stack-height-lg: ceil($level-size-lg * .4222 + $level-distance-lg * 2 * $level-
     padding-left: 1.5em;
     padding-right: 0;
     text-align: right;
+    justify-content: flex-end;
   }
 
   @media (min-width: $breakpoint-sm) {
