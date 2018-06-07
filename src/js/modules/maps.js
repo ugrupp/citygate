@@ -52,7 +52,7 @@ class MapModal {
       };
 
       new window.google.maps.GroundOverlay(
-        'https://github.com/ugrupp/citygate/raw/master/src/images/layout/map-travel-bg.png',
+        window.MAP_ASSETS_BASE + 'images/layout/map-travel-bg.png',
         imageBounds,
         {
           opacity: 1,
@@ -108,7 +108,7 @@ class MapModal {
         lng: 8.706293,
       },
       icon: {
-        url: 'https://raw.githubusercontent.com/ugrupp/citygate/master/src/images/layout/markers/a661.png',
+        url: window.MAP_ASSETS_BASE + 'images/layout/markers/a661.png',
         size: new window.google.maps.Size(73, 54),
         anchor: new window.google.maps.Point(36, 27),
       },
@@ -122,7 +122,7 @@ class MapModal {
         lng: 8.649927,
       },
       icon: {
-        url: 'https://raw.githubusercontent.com/ugrupp/citygate/master/src/images/layout/markers/a66.png',
+        url: window.MAP_ASSETS_BASE + 'images/layout/markers/a66.png',
         size: new window.google.maps.Size(73, 54),
         anchor: new window.google.maps.Point(36, 27),
       },
@@ -174,7 +174,7 @@ class MapModal {
     let baseOptions = {
       map: this.map,
       icon: {
-        url: `https://raw.githubusercontent.com/ugrupp/citygate/master/src/images/layout/markers/${options.icon}.png`,
+        url: `${window.MAP_ASSETS_BASE}images/layout/markers/${options.icon}.png`,
         size: options.size || new window.google.maps.Size(22, 22),
         anchor: options.anchor,
       },
@@ -348,7 +348,7 @@ class CampusMileModal extends MapModal {
 // Wrapper class around modals
 class MapModals {
   constructor() {
-    if (typeof window.google !== 'undefined') {
+    if (typeof window.google !== 'undefined' && window.MAP_ASSETS_BASE && window.MAP_LOCATIONS && window.MAP_STYLES) {
       this.modals = [...document.querySelectorAll('[data-map-modal]')];
       if (this.modals.length) {
         this.modals.forEach((modal) => {
