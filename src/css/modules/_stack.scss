@@ -261,6 +261,15 @@ $stack-height-lg: ceil($level-size-lg * .4222 + $level-distance-lg * 2 * $level-
     right: 0;
   }
 
+  .main_color & { // wp override
+    &,
+    &:hover,
+    &:focus {
+      border-color: currentColor;
+      text-decoration: none;
+    }
+  }
+
   &.is-level1 {
     transform: translateY(0);
   }
@@ -297,7 +306,8 @@ $stack-height-lg: ceil($level-size-lg * .4222 + $level-distance-lg * 2 * $level-
   }
 }
 
-.stack__nav-item--one {
+.stack__nav-item--one,
+.main_color .stack__nav-item--one { // wp override
   &,
   &:hover,
   &:focus,
@@ -306,7 +316,8 @@ $stack-height-lg: ceil($level-size-lg * .4222 + $level-distance-lg * 2 * $level-
   }
 }
 
-.stack__nav-item--two {
+.stack__nav-item--two,
+.main_color .stack__nav-item--two {
   &,
   &:hover,
   &:focus,
@@ -315,7 +326,8 @@ $stack-height-lg: ceil($level-size-lg * .4222 + $level-distance-lg * 2 * $level-
   }
 }
 
-.stack__nav-item--three {
+.stack__nav-item--three,
+.main_color .stack__nav-item--three {
   &,
   &:hover,
   &:focus,

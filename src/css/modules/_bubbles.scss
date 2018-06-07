@@ -116,6 +116,7 @@ $icon-size-sm: 100px;
 
   h1 {
     white-space: nowrap;
+    color: inherit;
   }
 
   strong {
@@ -185,27 +186,33 @@ $icon-size-sm: 100px;
 }
 
 // color modifiers
-.c-bubble--red {
+.c-bubble--red,
+.main_color .c-bubble--red {
   border-color: $color-red;
 }
 
-.c-bubble--green {
+.c-bubble--green,
+.main_color .c-bubble--green {
   border-color: $color-green;
 }
 
-.c-bubble--magenta {
+.c-bubble--magenta,
+.main_color .c-bubble--magenta {
   border-color: $color-magenta;
 }
 
-.c-bubble--blue {
+.c-bubble--blue,
+.main_color .c-bubble--blue {
   border-color: $color-blue;
 }
 
-.c-bubble--orange {
+.c-bubble--orange,
+.main_color .c-bubble--orange {
   border-color: $color-orange;
 }
 
-.c-bubble--yellow {
+.c-bubble--yellow,
+.main_color .c-bubble--yellow {
   border-color: $color-yellow;
 }
 
