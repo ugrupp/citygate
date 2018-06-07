@@ -264,6 +264,14 @@ class TravelModal extends MapModal {
       icon: 'sbahn',
       locationsKey: 'sbahn',
     });
+
+    // Taxi
+    this.addMarkersFactory({
+      icon: 'taxi',
+      locationsKey: 'taxi',
+      size: new window.google.maps.Size(60, 20),
+      anchor: new window.google.maps.Point(30, 20),
+    });
   }
 }
 
