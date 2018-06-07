@@ -1,6 +1,3 @@
-import MAP_LOCATIONS from './map-locations';
-import MAP_STYLES from './map-styles';
-
 // Map modal parent class (will be extended)
 class MapModal {
   constructor(modalEl) {
@@ -197,41 +194,43 @@ class MapModal {
     };
 
     // loop through locations and add markers
-    MAP_LOCATIONS[options.locationsKey].forEach((markerOptions) => {
-      // prepare the infowindow
-      let infowindow = new window.google.maps.InfoWindow({
-        content: `
-          <article class="c-map-infowindow">
-            <h1>${markerOptions.name}</h1>
-            <div>${markerOptions.text || ''}</div>
-          </article>
-        `,
-        maxWidth: 300,
+    if (window.MAP_LOCATIONS && window.MAP_LOCATIONS[options.locationsKey]) {
+      window.MAP_LOCATIONS[options.locationsKey].forEach((markerOptions) => {
+        // prepare the infowindow
+        let infowindow = new window.google.maps.InfoWindow({
+          content: `
+            <article class="c-map-infowindow">
+              <h1>${markerOptions.name}</h1>
+              <div>${markerOptions.text || ''}</div>
+            </article>
+          `,
+          maxWidth: 300,
+        });
+
+        // add it to the infowindow list
+        this.infowindows.push(infowindow);
+
+        // finally set the marker and add it to the markers list
+        let marker = new window.google.maps.Marker(Object.assign(baseOptions, {
+          position: markerOptions.coords,
+          title: markerOptions.name,
+        }));
+
+        this.markers.push(marker);
+
+        // set mouseover handlers to open the corresponding infowindow
+        marker.addListener('mouseover', () => {
+          // close other infowindows
+          this.infowindows.forEach((infowindow) => infowindow.close());
+          // open infowindow
+          infowindow.open(this.map, marker);
+        });
+
+        marker.addListener('mouseout', () => {
+          infowindow.close();
+        });
       });
-
-      // add it to the infowindow list
-      this.infowindows.push(infowindow);
-
-      // finally set the marker and add it to the markers list
-      let marker = new window.google.maps.Marker(Object.assign(baseOptions, {
-        position: markerOptions.coords,
-        title: markerOptions.name,
-      }));
-
-      this.markers.push(marker);
-
-      // set mouseover handlers to open the corresponding infowindow
-      marker.addListener('mouseover', () => {
-        // close other infowindows
-        this.infowindows.forEach((infowindow) => infowindow.close());
-        // open infowindow
-        infowindow.open(this.map, marker);
-      });
-
-      marker.addListener('mouseout', () => {
-        infowindow.close();
-      });
-    });
+    }
   }
 }
 
@@ -239,7 +238,7 @@ class MapModal {
 class TravelModal extends MapModal {
   constructor(modalEl) {
     super(modalEl);
-    this.mapStyles = MAP_STYLES.travel;
+    this.mapStyles = window.MAP_STYLES.travel;
     this.init();
   }
 
@@ -279,7 +278,7 @@ class AroundModal extends MapModal {
     super(modalEl);
 
     this.initialZoom = 17;
-    this.mapStyles = MAP_STYLES.around;
+    this.mapStyles = window.MAP_STYLES.around;
     this.init();
 
     this.addCircles();
@@ -318,7 +317,7 @@ class CampusMileModal extends MapModal {
   constructor(modalEl) {
     super(modalEl);
 
-    this.mapStyles = MAP_STYLES.campusmile;
+    this.mapStyles = window.MAP_STYLES.campusmile;
     this.init();
   }
 
