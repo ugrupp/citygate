@@ -4,6 +4,7 @@ class Bubble {
     this.isOpen = false;
     this.EXPAND_FLAG = 'is-expanded';
     this.initToggle();
+    this.initOutsideClick();
 
     // optional parent container
     this.parent = parent;
@@ -13,6 +14,15 @@ class Bubble {
     // openers
     this.bubbleEl.addEventListener('click', (e) => {
       this.toggle();
+    });
+  }
+
+  // close bubble on click "anywhere"
+  initOutsideClick() {
+    document.addEventListener('click', (e) => {
+      if (this.bubbleEl !== e.target && !this.bubbleEl.contains(e.target)) {
+        this.close();
+      }
     });
   }
 
