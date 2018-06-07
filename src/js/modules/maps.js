@@ -39,6 +39,7 @@ class MapModal {
       styles: this.mapStyles,
       center: this.MAP_CENTER,
       disableDefaultUI: true,
+      gestureHandling: 'greedy',
     });
   }
 
@@ -206,12 +207,14 @@ class MapModal {
         this.markers.push(marker);
 
         // set mouseover handlers to open the corresponding infowindow
-        marker.addListener('mouseover', () => {
+        let openHandler = () => {
           // close other infowindows
           this.infowindows.forEach((infowindow) => infowindow.close());
           // open infowindow
           infowindow.open(this.map, marker);
-        });
+        };
+        marker.addListener('mouseover', openHandler);
+        marker.addListener('click', openHandler);
 
         marker.addListener('mouseout', () => {
           infowindow.close();
