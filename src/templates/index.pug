@@ -56,10 +56,10 @@ html
             | Die „Campus Mile“
 
       //- map modals
-      .c-modals
+      .c-modals(data-map-modal-wrapper="")
         //- map modals
         each modal in modals
-          .c-modal.c-modal--one(id="map-modal-" + modal.id data-map-modal=modal.id)
+          .c-modal(id="map-modal-" + modal.id data-map-modal=modal.id)
             .c-modal__map(data-map=modal.id)
 
             //- close button

@@ -21,6 +21,10 @@
     overflow: visible;
     opacity: 1;
   }
+
+  * {
+    box-sizing: content-box;
+  }
 }
 
 // html flag

@@ -177,6 +177,8 @@ $stack-height-lg: ceil($level-size-lg * .4222 + $level-distance-lg * 2 * $level-
   width: 100%;
   object-fit: contain;
   object-position: center center;
+  padding: 1rem;
+  box-sizing: border-box;
 }
 
 // image zoom overlay. hidden when parent stack item isn't on top.

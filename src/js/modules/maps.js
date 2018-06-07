@@ -349,24 +349,30 @@ class CampusMileModal extends MapModal {
 class MapModals {
   constructor() {
     if (typeof window.google !== 'undefined' && window.MAP_ASSETS_BASE && window.MAP_LOCATIONS && window.MAP_STYLES) {
-      this.modals = [...document.querySelectorAll('[data-map-modal]')];
-      if (this.modals.length) {
-        this.modals.forEach((modal) => {
-          // decide which modal type should be opened
-          switch (modal.dataset.mapModal) {
-          case 'travel':
-            new TravelModal(modal);
-            break;
+      this.modalsWrapper = document.querySelector('[data-map-modal-wrapper]');
+      if (this.modalsWrapper) {
+        // move modalswrapper below body
+        document.body.appendChild(this.modalsWrapper);
 
-          case 'around':
-            new AroundModal(modal);
-            break;
+        this.modals = [...this.modalsWrapper.querySelectorAll('[data-map-modal]')];
+        if (this.modals.length) {
+          this.modals.forEach((modal) => {
+            // decide which modal type should be opened
+            switch (modal.dataset.mapModal) {
+            case 'travel':
+              new TravelModal(modal);
+              break;
 
-          case 'campusmile':
-            new CampusMileModal(modal);
-            break;
-          }
-        });
+            case 'around':
+              new AroundModal(modal);
+              break;
+
+            case 'campusmile':
+              new CampusMileModal(modal);
+              break;
+            }
+          });
+        }
       }
     }
   }
