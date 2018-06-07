@@ -129,19 +129,6 @@ class MapModal {
     }));
   }
 
-  // Citygate tower marker
-  addCitygateMarker() {
-    this.markers.push(new window.google.maps.Marker({
-      map: this.map,
-      position: this.MAP_CENTER,
-      icon: {
-        url: 'https://raw.githubusercontent.com/ugrupp/citygate/master/src/images/layout/markers/gebaeude-icon.png',
-        size: new window.google.maps.Size(64, 90),
-        anchor: new window.google.maps.Point(64, 90),
-      },
-    }));
-  }
-
   // should be overridden by subclasses
   addMarkers() {
   }
@@ -182,7 +169,7 @@ class MapModal {
     });
   }
 
-  // general factory method for adding standard markers (22x22px)
+  // general factory method for adding standard markers
   addMarkersFactory(options) {
     let baseOptions = {
       map: this.map,
@@ -244,7 +231,12 @@ class TravelModal extends MapModal {
 
   addMarkers() {
     // citygate tower
-    this.addCitygateMarker();
+    this.addMarkersFactory({
+      icon: 'gebaeude-icon',
+      locationsKey: 'citygate',
+      size: new window.google.maps.Size(64, 90),
+      anchor: new window.google.maps.Point(64, 90),
+    });
 
     // underground
     this.addMarkersFactory({
@@ -277,7 +269,7 @@ class AroundModal extends MapModal {
   constructor(modalEl) {
     super(modalEl);
 
-    this.initialZoom = 17;
+    this.initialZoom = 16;
     this.mapStyles = window.MAP_STYLES.around;
     this.init();
 
@@ -323,7 +315,12 @@ class CampusMileModal extends MapModal {
 
   addMarkers() {
     // Student citygate tower marker
-    this.addCitygateMarker();
+    this.addMarkersFactory({
+      icon: 'gebaeude-uni',
+      locationsKey: 'citygateUni',
+      size: new window.google.maps.Size(106, 116),
+      anchor: new window.google.maps.Point(106, 116),
+    });
 
     // campus restaurants
     this.addMarkersFactory({
@@ -344,19 +341,6 @@ class CampusMileModal extends MapModal {
       locationsKey: 'libraries',
       size: new window.google.maps.Size(87, 63),
     });
-  }
-
-  // Student citygate tower marker
-  addCitygateMarker() {
-    this.markers.push(new window.google.maps.Marker({
-      map: this.map,
-      position: this.MAP_CENTER,
-      icon: {
-        url: 'https://raw.githubusercontent.com/ugrupp/citygate/master/src/images/layout/markers/gebaeude-uni.png',
-        size: new window.google.maps.Size(106, 116),
-        anchor: new window.google.maps.Point(106, 116),
-      },
-    }));
   }
 }
 
