@@ -303,6 +303,7 @@ $stack-height-lg: ceil($level-size-lg * .4222 + $level-distance-lg * 2 * $level-
     height: .5em;
     width: .5em;
     margin-right: .25em;
+    flex-shrink: 0;
   }
 }
 

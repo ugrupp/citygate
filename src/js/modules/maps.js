@@ -188,7 +188,7 @@ class MapModal {
         let infowindow = new window.google.maps.InfoWindow({
           content: `
             <article class="c-map-infowindow">
-              <h1>${markerOptions.name}</h1>
+              <strong>${markerOptions.name}</strong>
               <div>${markerOptions.text || ''}</div>
             </article>
           `,
