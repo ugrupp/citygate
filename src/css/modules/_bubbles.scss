@@ -252,8 +252,7 @@ $icon-size-sm: 100px;
 
   @media (min-width: $breakpoint-xs) {
     font-size: 1rem;
-    margin-top: 2em;
-    line-height: 1.7;
+    margin-top: 1.5em;
   }
 
   .is-expanded & {
