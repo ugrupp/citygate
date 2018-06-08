@@ -349,11 +349,11 @@ $stack-height-lg: ceil($level-size-lg * .4222 + $level-distance-lg * 2 * $level-
   display: none;
 
   @media (min-width: $breakpoint-sm) {
-    left: $level-size-sm;
+    left: $level-size-sm + 40px;
   }
 
   @media (min-width: $breakpoint-lg) {
-    left: $level-size-lg;
+    left: $level-size-lg + 140px;
   }
 
   &.is-visible {
