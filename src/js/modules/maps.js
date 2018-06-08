@@ -307,6 +307,14 @@ class AroundModal extends MapModal {
   }
 
   addMarkers() {
+    // citygate tower
+    this.addMarkersFactory({
+      icon: 'gebaeude-icon',
+      locationsKey: 'citygate',
+      size: new window.google.maps.Size(64, 90),
+      anchor: new window.google.maps.Point(64, 90),
+    });
+
     // restaurants
     this.addMarkersFactory({
       icon: 'gastro',
