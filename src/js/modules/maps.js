@@ -228,6 +228,8 @@ class MapModal {
 class TravelModal extends MapModal {
   constructor(modalEl) {
     super(modalEl);
+
+    this.initialZoom = 14;
     this.mapStyles = window.MAP_STYLES.travel;
     this.init();
   }
@@ -328,6 +330,7 @@ class CampusMileModal extends MapModal {
   constructor(modalEl) {
     super(modalEl);
 
+    this.initialZoom = 16;
     this.mapStyles = window.MAP_STYLES.campusmile;
     this.init();
   }
