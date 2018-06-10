@@ -245,20 +245,23 @@ class TravelModal extends MapModal {
 
     // underground
     this.addMarkersFactory({
-      icon: 'ubahn',
+      icon: 'ubahn1',
       locationsKey: 'underground',
+      size: new window.google.maps.Size(42, 42),
     });
 
     // tram
     this.addMarkersFactory({
-      icon: 'tram',
+      icon: 'tram1',
       locationsKey: 'tram',
+      size: new window.google.maps.Size(42, 42),
     });
 
     // bus
     this.addMarkersFactory({
-      icon: 'bus',
+      icon: 'bus1',
       locationsKey: 'bus',
+      size: new window.google.maps.Size(37, 37),
     });
 
     // S-Bahn
