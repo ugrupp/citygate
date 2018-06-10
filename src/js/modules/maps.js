@@ -319,10 +319,30 @@ class AroundModal extends MapModal {
       anchor: new window.google.maps.Point(64, 90),
     });
 
-    // restaurants
+    // gastro markers
     this.addMarkersFactory({
-      icon: 'gastro',
-      locationsKey: 'restaurants',
+      icon: 'gastro-res',
+      locationsKey: 'gastroRes',
+    });
+
+    this.addMarkersFactory({
+      icon: 'gastro-imbiss',
+      locationsKey: 'gastroImbiss',
+    });
+
+    this.addMarkersFactory({
+      icon: 'gastro-shopping',
+      locationsKey: 'gastroShopping',
+    });
+
+    this.addMarkersFactory({
+      icon: 'gastro-cafe',
+      locationsKey: 'gastroCafe',
+    });
+
+    this.addMarkersFactory({
+      icon: 'gastro-bar',
+      locationsKey: 'gastroBar',
     });
   }
 }
