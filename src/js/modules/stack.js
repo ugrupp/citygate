@@ -74,13 +74,18 @@ export default class Stack {
   updateDOM() {
     this.levelOrder.forEach((level, idx) => {
       // update levels
-      level.classList.remove(...this.FLAGS);
+      this.FLAGS.forEach((flag) => {
+        level.classList.remove(flag);
+      });
       level.classList.add(this.FLAGS[idx]);
 
       // update nav items
       let navItem = this.navItems.find((el) => el.getAttribute('href') === `#${level.id}`);
       if (navItem) {
-        navItem.classList.remove(...this.FLAGS);
+        // IE ...
+        this.FLAGS.forEach((flag) => {
+          navItem.classList.remove(flag);
+        });
         navItem.classList.add(this.FLAGS[idx]);
       }
     });

@@ -3,6 +3,7 @@ $hover-scale: 1.02;
 $shadow-color: rgba(0, 0, 0, .8);
 $level-skew-factor: 17;
 $level-distance-distortion: .91; // since $level-distance is distorted in 3D space
+$level-base-transform: rotateX(65deg) skew(-$level-skew-factor * 1deg);
 
 // xs
 $level-size: 220px;
@@ -56,9 +57,6 @@ $stack-height-lg: ceil($level-size-lg * .4222 + $level-distance-lg * 2 * $level-
   flex-shrink: 0;
   position: relative;
 
-  transform: rotateX(65deg) skew(-$level-skew-factor * 1deg);
-  transform-origin: top center;
-  transform-style: preserve-3d;
   width: $level-size;
   height: $level-size;
   margin-left: $stack-offset-x;
@@ -82,7 +80,7 @@ $stack-height-lg: ceil($level-size-lg * .4222 + $level-distance-lg * 2 * $level-
   width: 100%;
   cursor: pointer;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-  transform-style: preserve-3d;
+  transform-origin: top center;
   transition: all $transition-time;
   box-shadow: $level-size / 100 $level-size / 100 ($level-size / 10) $shadow-color;
 
@@ -103,57 +101,60 @@ $stack-height-lg: ceil($level-size-lg * .4222 + $level-distance-lg * 2 * $level-
   }
 
   &.is-level1 {
-    transform: translateZ(0);
+    z-index: 30;
+    transform: $level-base-transform translateZ(0);
 
     &:hover {
-      transform: scale($hover-scale);
+      transform: $level-base-transform scale($hover-scale);
     }
   }
 
   &.is-level2 {
-    transform: translateZ(-$level-distance);
+    z-index: 20;
+    transform: $level-base-transform translateZ(-$level-distance);
 
     &:hover {
-      transform: scale($hover-scale) translateZ(-$level-distance);
+      transform: $level-base-transform scale($hover-scale) translateZ(-$level-distance);
     }
 
     @media (min-width: $breakpoint-sm) {
-      transform: translateZ(-$level-distance-sm);
+      transform: $level-base-transform translateZ(-$level-distance-sm);
 
       &:hover {
-        transform: scale($hover-scale) translateZ(-$level-distance-sm);
+        transform: $level-base-transform scale($hover-scale) translateZ(-$level-distance-sm);
       }
     }
 
     @media (min-width: $breakpoint-lg) {
-      transform: translateZ(-$level-distance-lg);
+      transform: $level-base-transform translateZ(-$level-distance-lg);
 
       &:hover {
-        transform: scale($hover-scale) translateZ(-$level-distance-lg);
+        transform: $level-base-transform scale($hover-scale) translateZ(-$level-distance-lg);
       }
     }
   }
 
   &.is-level3 {
-    transform: translateZ(-$level-distance * 2);
+    z-index: 10;
+    transform: $level-base-transform translateZ(-$level-distance * 2);
 
     &:hover {
-      transform: scale($hover-scale) translateZ(-$level-distance * 2);
+      transform: $level-base-transform scale($hover-scale) translateZ(-$level-distance * 2);
     }
 
     @media (min-width: $breakpoint-sm) {
-      transform: translateZ(-$level-distance-sm * 2);
+      transform: $level-base-transform translateZ(-$level-distance-sm * 2);
 
       &:hover {
-        transform: scale($hover-scale) translateZ(-$level-distance-sm * 2);
+        transform: $level-base-transform scale($hover-scale) translateZ(-$level-distance-sm * 2);
       }
     }
 
     @media (min-width: $breakpoint-lg) {
-      transform: translateZ(-$level-distance-lg * 2);
+      transform: $level-base-transform translateZ(-$level-distance-lg * 2);
 
       &:hover {
-        transform: scale($hover-scale) translateZ(-$level-distance-lg * 2);
+        transform: $level-base-transform scale($hover-scale) translateZ(-$level-distance-lg * 2);
       }
     }
   }
@@ -342,7 +343,7 @@ $stack-height-lg: ceil($level-size-lg * .4222 + $level-distance-lg * 2 * $level-
 .stack__zoom {
   position: absolute;
   top: 0;
-  z-index: 10;
+  z-index: 40; // > levels
   left: $level-size;
   transform: translateY(-50%) translateZ(200px); // because buggy safari
 
