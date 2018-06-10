@@ -372,19 +372,21 @@ class CampusMileModal extends MapModal {
       locationsKey: 'campusRestaurants',
     });
 
-    // universities
-    this.addMarkersFactory({
-      icon: 'uni',
-      locationsKey: 'universities',
-      size: new window.google.maps.Size(76, 105),
-    });
-
     // libraries
     this.addMarkersFactory({
       icon: 'bibliothek',
       locationsKey: 'libraries',
       size: new window.google.maps.Size(87, 63),
     });
+
+    // campus icons
+    for (let i = 1; i <= 7; i++) {
+      this.addMarkersFactory({
+        icon: `campus${i}`,
+        locationsKey: `campus${i}`,
+        size: new window.google.maps.Size(71, 49),
+      });
+    }
   }
 }
 
