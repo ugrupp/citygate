@@ -246,22 +246,40 @@ class TravelModal extends MapModal {
     // underground
     this.addMarkersFactory({
       icon: 'ubahn1',
-      locationsKey: 'underground',
+      locationsKey: 'undergroundNearby',
       size: new window.google.maps.Size(42, 42),
+      anchor: new window.google.maps.Point(21, 21),
+    });
+
+    this.addMarkersFactory({
+      icon: 'ubahn',
+      locationsKey: 'underground',
     });
 
     // tram
     this.addMarkersFactory({
       icon: 'tram1',
-      locationsKey: 'tram',
+      locationsKey: 'tramNearby',
       size: new window.google.maps.Size(42, 42),
+      anchor: new window.google.maps.Point(21, 21),
+    });
+
+    this.addMarkersFactory({
+      icon: 'tram',
+      locationsKey: 'tram',
     });
 
     // bus
     this.addMarkersFactory({
       icon: 'bus1',
-      locationsKey: 'bus',
+      locationsKey: 'busNearby',
       size: new window.google.maps.Size(37, 37),
+      anchor: new window.google.maps.Point(18, 18),
+    });
+
+    this.addMarkersFactory({
+      icon: 'bus',
+      locationsKey: 'bus',
     });
 
     // S-Bahn
