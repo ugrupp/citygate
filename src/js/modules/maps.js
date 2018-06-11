@@ -30,6 +30,7 @@ class MapModal {
     this.addMarkers();
     this.addAutobahnMarkers();
     this.addPOIMarkers();
+    this.addStreetMarkers();
     this.initModalTogglers();
   }
 
@@ -96,6 +97,38 @@ class MapModal {
       icon: 'palmengarten',
       locationsKey: 'poiPalmengarten',
       size: new window.google.maps.Size(60, 42),
+    });
+  }
+
+  addStreetMarkers() {
+    this.addMarkersFactory({
+      icon: 'adickesallee',
+      locationsKey: 'adickesallee',
+      size: new window.google.maps.Size(127, 30),
+    });
+
+    this.addMarkersFactory({
+      icon: 'arrow-a66',
+      locationsKey: 'arrowA66',
+      size: new window.google.maps.Size(123, 33),
+    });
+
+    this.addMarkersFactory({
+      icon: 'campus-mile',
+      locationsKey: 'campusMile',
+      size: new window.google.maps.Size(137, 33),
+    });
+
+    this.addMarkersFactory({
+      icon: 'miquelallee',
+      locationsKey: 'miquelallee',
+      size: new window.google.maps.Size(112, 33),
+    });
+
+    this.addMarkersFactory({
+      icon: 'nibelungenallee',
+      locationsKey: 'nibelungenallee',
+      size: new window.google.maps.Size(157, 30),
     });
   }
 
@@ -229,7 +262,7 @@ class TravelModal extends MapModal {
   constructor(modalEl) {
     super(modalEl);
 
-    this.initialZoom = 14;
+    this.initialZoom = 15;
     this.mapStyles = window.MAP_STYLES.travel;
     this.init();
   }
@@ -302,7 +335,7 @@ class AroundModal extends MapModal {
   constructor(modalEl) {
     super(modalEl);
 
-    this.initialZoom = 16;
+    this.initialZoom = 17;
     this.mapStyles = window.MAP_STYLES.around;
     this.init();
 
@@ -395,6 +428,13 @@ class CampusMileModal extends MapModal {
       icon: 'bibliothek',
       locationsKey: 'libraries',
       size: new window.google.maps.Size(87, 63),
+    });
+
+    // merz headquarters
+    this.addMarkersFactory({
+      icon: 'merz',
+      locationsKey: 'merzHQ',
+      size: new window.google.maps.Size(51, 49),
     });
 
     // campus icons
