@@ -87,10 +87,10 @@ html
   body
     .c-bubbles(data-bubbles="")
       .c-bubbles__content
-        strong Büros und Services für Morgen
-        strong
-          img.c-bubbles__logo(src="http://city-gate-beta.com/wp-content/uploads/2018/06/logo-black.png", alt="City Gate")
-        strong Inspirierend und gut vernetzt
+        strong.c-bubbles__claim Büros und Services für Morgen
+        strong.c-bubbles__logo
+          img(src="http://city-gate-beta.com/wp-content/uploads/2018/06/logo-black.png", alt="City Gate")
+        strong.c-bubbles__claim Inspirierend und gut vernetzt
 
       each bubble, index in bubbles
         .c-bubble(class="c-bubble--" + bubble.theme + " c-bubble--" + (index + 1) data-bubble="")

@@ -46,10 +46,11 @@ $icon-size-sm: 100px;
     @media (min-width: $breakpoint-sm) {
       top: 15%;
       left: 14%;
-      transform: scale(.81);
+      width: $bubble-size * .81;
+      height: $bubble-size * .81;
 
-      &:hover {
-        transform: scale(.9);
+      .c-bubble__icon {
+        transform: scale(.81);
       }
     }
   }
@@ -58,10 +59,11 @@ $icon-size-sm: 100px;
     @media (min-width: $breakpoint-sm) {
       top: 1%;
       left: 34%;
-      transform: scale(1.145);
+      width: $bubble-size * 1.145;
+      height: $bubble-size * 1.145;
 
-      &:hover {
-        transform: scale(1.25);
+      .c-bubble__icon {
+        transform: scale(1.145);
       }
     }
   }
@@ -70,11 +72,11 @@ $icon-size-sm: 100px;
     @media (min-width: $breakpoint-sm) {
       top: 0;
       right: 19%;
-      transform: scale(1.32);
-      transform-origin: top right;
+      width: $bubble-size * 1.32;
+      height: $bubble-size * 1.32;
 
-      &:hover {
-        transform: scale(1.4);
+      .c-bubble__icon {
+        transform: scale(1.32);
       }
     }
   }
@@ -113,21 +115,36 @@ $icon-size-sm: 100px;
     align-items: center;
     justify-content: space-around;
   }
+}
 
-  h1 {
-    white-space: nowrap;
-    color: inherit;
+.c-bubbles__claim {
+  font-size: 1.4rem;
+  font-weight: normal;
+  display: inline-block;
+  text-transform: uppercase;
+  color: $color-one;
+  max-width: 240px;
+}
+
+.c-bubbles__logo {
+  display: block;
+  width: 225px;
+  height: 67px;
+  margin-left: auto;
+  margin-right: auto;
+
+  @media (min-width: $breakpoint-sm) {
+    margin-left: 0;
+    margin-right: 0;
   }
 
-  strong {
-    font-size: 1.4rem;
-    font-weight: normal;
-    display: inline-block;
-    text-transform: uppercase;
-    color: $color-one;
-    max-width: 240px;
+  img {
+    height: 100%;
+    width: 100%;
+    display: block;
   }
 }
+
 
 
 // Single Bubble
@@ -152,7 +169,8 @@ $icon-size-sm: 100px;
   align-items: center;
   flex-direction: column;
 
-  transition: transform $transition-time;
+  transition-duration: $transition-time;
+  transition-property: width, height, transform, padding;
 
   &:hover { /* stylelint-disable-line no-descending-specificity */
     transform: scale(1.1);
@@ -164,8 +182,6 @@ $icon-size-sm: 100px;
     height: $bubble-size-expanded;
     box-shadow: 0 .25rem 4rem rgba(0, 0, 0, .75);
 
-    transition: none;
-    transform: translate3d(0, 0, 0);
     z-index: 10;
 
     @media (min-width: $breakpoint-xs) {
@@ -221,10 +237,12 @@ $icon-size-sm: 100px;
 .c-bubble__icon {
   width: $icon-size-sm;
   height: $icon-size-sm;
+  transition: all $transition-time;
 
   .is-expanded & {
     width: $icon-size;
     height: $icon-size;
+    transform: scale(1) !important;
 
     @media (min-width: $breakpoint-xs) {
       width: $icon-size-sm;
@@ -242,21 +260,32 @@ $icon-size-sm: 100px;
 
 // Content
 .c-bubble__content {
-  margin-top: 1em;
-
   font-size: .8rem;
   line-height: 1.5;
   text-align: center;
 
-  display: none;
+  margin-top: 0;
+  height: 0;
+  overflow: hidden;
+  transform: scale(0);
+  opacity: 0;
+  transition-duration: $transition-time;
+  transition-property: transform, opacity;
+  transform-origin: top center;
 
   @media (min-width: $breakpoint-xs) {
     font-size: 1rem;
-    margin-top: 1.5em;
   }
 
   .is-expanded & {
-    display: block;
+    margin-top: 1em;
+    height: auto;
+    transform: scale(1);
+    opacity: 1;
+
+    @media (min-width: $breakpoint-xs) {
+      margin-top: 1.5em;
+    }
   }
 }
 
@@ -271,10 +300,4 @@ $icon-size-sm: 100px;
     padding: 0;
     list-style-position: inside;
   }
-}
-
-.c-bubbles__logo {
-  display: block;
-  width: 225px;
-  height: 67px;
 }
