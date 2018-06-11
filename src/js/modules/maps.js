@@ -120,13 +120,6 @@ class MapModal {
     });
 
     this.addMarkersFactory({
-      icon: 'campus-mile',
-      locationsKey: 'campusMile',
-      size: new window.google.maps.Size(137, 33),
-      zIndex: 0,
-    });
-
-    this.addMarkersFactory({
       icon: 'miquelallee',
       locationsKey: 'miquelallee',
       size: new window.google.maps.Size(112, 33),
@@ -454,6 +447,14 @@ class CampusMileModal extends MapModal {
       icon: 'merz',
       locationsKey: 'merzHQ',
       size: new window.google.maps.Size(51, 49),
+    });
+
+    // campusmile
+    this.addMarkersFactory({
+      icon: 'campus-mile',
+      locationsKey: 'campusMile',
+      size: new window.google.maps.Size(137, 33),
+      zIndex: 0,
     });
 
     // campus icons
