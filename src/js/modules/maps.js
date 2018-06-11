@@ -17,6 +17,7 @@ class MapModal {
       lat: 50.128754,
       lng: 8.691756,
     };
+    this.initialCenter = this.MAP_CENTER;
     this.initialZoom = 15;
     this.mapStyles = null;
 
@@ -38,7 +39,7 @@ class MapModal {
     this.map = new window.google.maps.Map(this.mapEl, {
       zoom: this.initialZoom,
       styles: this.mapStyles,
-      center: this.MAP_CENTER,
+      center: this.initialCenter,
       disableDefaultUI: true,
       gestureHandling: 'greedy',
     });
@@ -83,6 +84,7 @@ class MapModal {
       icon: 'zoo',
       locationsKey: 'poiZoo',
       size: new window.google.maps.Size(60, 44),
+      zIndex: 0,
     });
 
     // opera
@@ -90,6 +92,7 @@ class MapModal {
       icon: 'alte-oper',
       locationsKey: 'poiOpera',
       size: new window.google.maps.Size(60, 43),
+      zIndex: 0,
     });
 
     // palmengarten
@@ -97,6 +100,7 @@ class MapModal {
       icon: 'palmengarten',
       locationsKey: 'poiPalmengarten',
       size: new window.google.maps.Size(60, 42),
+      zIndex: 0,
     });
   }
 
@@ -105,30 +109,35 @@ class MapModal {
       icon: 'adickesallee',
       locationsKey: 'adickesallee',
       size: new window.google.maps.Size(127, 30),
+      zIndex: 0,
     });
 
     this.addMarkersFactory({
       icon: 'arrow-a66',
       locationsKey: 'arrowA66',
       size: new window.google.maps.Size(123, 33),
+      zIndex: 0,
     });
 
     this.addMarkersFactory({
       icon: 'campus-mile',
       locationsKey: 'campusMile',
       size: new window.google.maps.Size(137, 33),
+      zIndex: 0,
     });
 
     this.addMarkersFactory({
       icon: 'miquelallee',
       locationsKey: 'miquelallee',
       size: new window.google.maps.Size(112, 33),
+      zIndex: 0,
     });
 
     this.addMarkersFactory({
       icon: 'nibelungenallee',
       locationsKey: 'nibelungenallee',
       size: new window.google.maps.Size(157, 30),
+      zIndex: 0,
     });
   }
 
@@ -146,6 +155,7 @@ class MapModal {
         size: new window.google.maps.Size(73, 54),
         anchor: new window.google.maps.Point(36, 27),
       },
+      zIndex: 0,
     }));
 
     // a66
@@ -160,6 +170,7 @@ class MapModal {
         size: new window.google.maps.Size(73, 54),
         anchor: new window.google.maps.Point(36, 27),
       },
+      zIndex: 0,
     }));
   }
 
@@ -212,6 +223,7 @@ class MapModal {
         size: options.size || new window.google.maps.Size(22, 22),
         anchor: options.anchor,
       },
+      zIndex: (typeof options.zIndex !== 'undefined') ? options.zIndex : 10,
     };
 
     // loop through locations and add markers
@@ -274,6 +286,7 @@ class TravelModal extends MapModal {
       locationsKey: 'citygate',
       size: new window.google.maps.Size(64, 90),
       anchor: new window.google.maps.Point(64, 90),
+      zIndex: 0,
     });
 
     // underground
@@ -368,6 +381,7 @@ class AroundModal extends MapModal {
       locationsKey: 'citygate',
       size: new window.google.maps.Size(64, 90),
       anchor: new window.google.maps.Point(64, 90),
+      zIndex: 0,
     });
 
     // gastro markers
@@ -404,6 +418,10 @@ class CampusMileModal extends MapModal {
     super(modalEl);
 
     this.initialZoom = 16;
+    this.initialCenter = {
+      lat: 50.129622,
+      lng: 8.677280,
+    };
     this.mapStyles = window.MAP_STYLES.campusmile;
     this.init();
   }
@@ -413,8 +431,9 @@ class CampusMileModal extends MapModal {
     this.addMarkersFactory({
       icon: 'gebaeude-uni',
       locationsKey: 'citygateUni',
-      size: new window.google.maps.Size(106, 116),
-      anchor: new window.google.maps.Point(106, 116),
+      size: new window.google.maps.Size(70, 90),
+      anchor: new window.google.maps.Point(70, 90),
+      zIndex: 0,
     });
 
     // campus restaurants
