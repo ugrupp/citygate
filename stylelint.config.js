@@ -15,6 +15,7 @@ module.exports = {
     "selector-no-vendor-prefix": true,
     "value-no-vendor-prefix": true,
     "number-leading-zero": "never",
+    "no-descending-specificity": null,
     "at-rule-empty-line-before": ["always", {
       except: [
         "blockless-after-same-name-blockless",
