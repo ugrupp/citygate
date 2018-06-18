@@ -333,6 +333,12 @@ class TravelModal extends MapModal {
       locationsKey: 'taxi',
       size: new window.google.maps.Size(21, 21),
     });
+
+    // Gastro
+    this.addMarkersFactory({
+      icon: 'gastro-res',
+      locationsKey: 'gastroResTravel',
+    });
   }
 }
 
