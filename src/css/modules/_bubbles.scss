@@ -149,6 +149,8 @@ $icon-size-sm: 100px;
 
 // Single Bubble
 .c-bubble { /* stylelint-disable-line no-descending-specificity */
+  position: relative;
+
   color: $color-white;
   @include font-smoothing;
   background-color: $color-black;
@@ -235,19 +237,17 @@ $icon-size-sm: 100px;
 
 // Icon
 .c-bubble__icon {
+  position: absolute;
+  left: 50%;
+  top: 50%;
   width: $icon-size-sm;
   height: $icon-size-sm;
+  margin-left: -$icon-size-sm / 2;
+  margin-top: -$icon-size-sm / 2;
   transition: all $transition-time;
 
   .is-expanded & {
-    width: $icon-size;
-    height: $icon-size;
-    transform: scale(1) !important;
-
-    @media (min-width: $breakpoint-xs) {
-      width: $icon-size-sm;
-      height: $icon-size-sm;
-    }
+    opacity: 0;
   }
 
   svg {
@@ -271,21 +271,16 @@ $icon-size-sm: 100px;
   opacity: 0;
   transition-duration: $transition-time;
   transition-property: transform, opacity;
-  transform-origin: top center;
+  transform-origin: center center;
 
   @media (min-width: $breakpoint-xs) {
     font-size: 1rem;
   }
 
   .is-expanded & {
-    margin-top: 1em;
     height: auto;
     transform: scale(1);
     opacity: 1;
-
-    @media (min-width: $breakpoint-xs) {
-      margin-top: 1.5em;
-    }
   }
 }
 
