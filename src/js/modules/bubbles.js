@@ -1,10 +1,14 @@
+import Util from './util';
+
 class Bubble {
   constructor(bubbleEl, parent) {
     this.bubbleEl = bubbleEl;
     this.isOpen = false;
     this.EXPAND_FLAG = 'is-expanded';
+    this.ANIMATING_FLAG = 'is-animating';
     this.initToggle();
     this.initOutsideClick();
+    this.initTransitionFlag();
 
     // optional parent container
     this.parent = parent;
@@ -26,6 +30,15 @@ class Bubble {
     });
   }
 
+  initTransitionFlag() {
+    let transitionEndEvent = Util.transitionEndEvent();
+    transitionEndEvent && this.bubbleEl.addEventListener(transitionEndEvent, (e) => {
+      if (e.target === this.bubbleEl) {
+        this.bubbleEl.classList.remove(this.ANIMATING_FLAG);
+      }
+    }, false);
+  }
+
   toggle() {
     this.isOpen
       ? this.close()
@@ -33,8 +46,11 @@ class Bubble {
   }
 
   close() {
-    this.isOpen = false;
-    this.bubbleEl.classList.remove(this.EXPAND_FLAG);
+    if (this.isOpen) {
+      this.isOpen = false;
+      this.bubbleEl.classList.remove(this.EXPAND_FLAG);
+      this.bubbleEl.classList.add(this.ANIMATING_FLAG);
+    }
   }
 
   open() {
@@ -44,6 +60,7 @@ class Bubble {
 
     this.isOpen = true;
     this.bubbleEl.classList.add(this.EXPAND_FLAG);
+    this.bubbleEl.classList.add(this.ANIMATING_FLAG);
   }
 }
 
