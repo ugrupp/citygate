@@ -464,7 +464,7 @@ class CampusMileModal extends MapModal {
     });
 
     // campus icons
-    for (let i = 1; i <= 7; i++) {
+    for (let i = 2; i <= 8; i++) {
       this.addMarkersFactory({
         icon: `campus${i}`,
         locationsKey: `campus${i}`,
