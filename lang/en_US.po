@@ -1,0 +1,809 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"POT-Creation-Date: 2018-08-24 16:19+0200\n"
+"PO-Revision-Date: 2018-08-24 16:24+0200\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: en_US\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 2.1.1\n"
+"X-Poedit-Basepath: .\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Poedit-KeywordsList: __;_e\n"
+"X-Poedit-SearchPath-0: location-stack.php\n"
+
+#: location-stack.php:8 location-stack.php:14 location-stack.php:20
+msgid "Vergrößern"
+msgstr ""
+
+#: location-stack.php:23 location-stack.php:30 location-stack.php:43
+msgid "Die Erreichbarkeit"
+msgstr ""
+
+#: location-stack.php:24 location-stack.php:33 location-stack.php:83
+msgid "Die Umgebung"
+msgstr ""
+
+#: location-stack.php:25 location-stack.php:36
+msgid "Die „Campus-Meile“"
+msgstr ""
+
+#: location-stack.php:44
+msgid ""
+"Nächstgelegene U-Bahnhaltestelle (700 m): Glauburgstraße + Dt. "
+"Nationalbibliothek, Line U5"
+msgstr ""
+
+#: location-stack.php:45
+msgid "Nächstgelegene Bushaltestelle (30 m): Nibelungenplatz, Busline 32"
+msgstr ""
+
+#: location-stack.php:46
+msgid ""
+"Nächstgelegene Straßenbahnhaltestelle (40 m): Nibelungenplatz + "
+"Rohrbachstraße, Linien 12 + 18"
+msgstr ""
+
+#: location-stack.php:47
+msgid "U-Bahnstation"
+msgstr ""
+
+#: location-stack.php:48
+msgid "Bushaltestelle"
+msgstr "Bus stop"
+
+#: location-stack.php:49
+msgid "Straßenbahnstation"
+msgstr ""
+
+#: location-stack.php:50
+msgid "S-Bahnstation"
+msgstr ""
+
+#: location-stack.php:51
+msgid "Taxistand vor dem Gebäude, Nibelungenplatz"
+msgstr ""
+
+#: location-stack.php:52
+msgid "Autobahn A66 zum Flughafen (2 Minuten)"
+msgstr ""
+
+#: location-stack.php:53
+msgid "PKW"
+msgstr ""
+
+#: location-stack.php:53
+msgid "In wenigen Fahrminuten sind die Autobahnen A66 & A661 zu erreichen."
+msgstr ""
+
+#: location-stack.php:54
+msgid ""
+"Alle 3-4 Min. fährt ein Bus oder eine Straßenbahn vom Nibelungenplatz zur "
+"Stadtmitte. Alle U-Bahnen fahren über Konstablerwache."
+msgstr ""
+
+#: location-stack.php:54
+msgid ""
+"Von den Stationen Konstablerwache oder Hauptwache fahren im Minutentakt "
+"zahlreiche S- und U-Bahnen zum Hauptbahnhof."
+msgstr ""
+
+#: location-stack.php:55 location-stack.php:97 location-stack.php:138
+msgid "Fahren Sie mit der Maus über die angezeigten Icons auf der Karte."
+msgstr ""
+
+#: location-stack.php:56 location-stack.php:98 location-stack.php:139
+msgid "Hier werden Ihnen weitere Informationen angezeigt."
+msgstr ""
+
+#: location-stack.php:66 location-stack.php:110 location-stack.php:149
+msgid "Schließen"
+msgstr ""
+
+#: location-stack.php:72 location-stack.php:116 location-stack.php:155
+msgid "Zoom in"
+msgstr ""
+
+#: location-stack.php:76 location-stack.php:120 location-stack.php:159
+msgid "Zoom out"
+msgstr ""
+
+#: location-stack.php:88
+msgid "Essen und Trinken innerhalb von 100 – 500m"
+msgstr ""
+
+#: location-stack.php:89
+msgid "Restaurant"
+msgstr ""
+
+#: location-stack.php:90
+msgid "Imbiss"
+msgstr ""
+
+#: location-stack.php:91
+msgid "Café"
+msgstr ""
+
+#: location-stack.php:92
+msgid "Bar/Kneipe"
+msgstr ""
+
+#: location-stack.php:93
+msgid "Supermarkt"
+msgstr ""
+
+#: location-stack.php:126
+msgid "Die \"Campus-Meile\""
+msgstr ""
+
+#: location-stack.php:127
+msgid ""
+"Von der Campus-Meile zur Stadt der Wissenschaft, Forschung, Innovation und "
+"Integration"
+msgstr ""
+
+#: location-stack.php:128
+msgid "CITY GATE / Frankfurt University of Applied Sciences (UAS)"
+msgstr ""
+
+#: location-stack.php:129 location-stack.php:872
+msgid "Campus Frankfurt University of Applied Sciences (UAS)"
+msgstr ""
+
+#: location-stack.php:130 location-stack.php:880
+msgid "Frankfurt School of Finance & Management"
+msgstr ""
+
+#: location-stack.php:131 location-stack.php:888
+msgid "Frankfurt School Dorms"
+msgstr ""
+
+#: location-stack.php:132 location-stack.php:896
+msgid "The Flag Campusmeile, Student Apartments"
+msgstr ""
+
+#: location-stack.php:133
+msgid "The Flag, Student Apartments"
+msgstr ""
+
+#: location-stack.php:134 location-stack.php:912
+msgid "Deutsches Institut f. int. Pädagogische Forschung"
+msgstr ""
+
+#: location-stack.php:135 location-stack.php:920
+msgid "Goethe Universität Frankfurt (Campus Westend)"
+msgstr ""
+
+#: location-stack.php:136
+msgid "Deutsche Nationalbilbliothek"
+msgstr ""
+
+#: location-stack.php:171 location-stack.php:179 location-stack.php:187
+#: location-stack.php:864
+msgid "Campus-Meile"
+msgstr ""
+
+#: location-stack.php:195
+msgid "Zu den Autobahnen"
+msgstr ""
+
+#: location-stack.php:203
+msgid "Taxi-Stand Nibelungenplatz"
+msgstr ""
+
+#: location-stack.php:211
+msgid "U5 / Deutsche Nationalbibliothek"
+msgstr ""
+
+#: location-stack.php:217
+msgid "U5 / Glauburgstraße"
+msgstr ""
+
+#: location-stack.php:218
+msgid "U-Bahnhaltestelle „Glauburgstraße“ in ca. 9 Gehminuten"
+msgstr ""
+
+#: location-stack.php:218
+msgid "Mit der U-Bahn fährt man 6 Minuten, Taktung alle 7-8 Min."
+msgstr ""
+
+#: location-stack.php:226 location-stack.php:834
+msgid "Mensa Goethe Universität Frankfurt"
+msgstr ""
+
+#: location-stack.php:232
+msgid "essWERK/ Mensa University of Applied Sciences (UAS)"
+msgstr ""
+
+#: location-stack.php:238 location-stack.php:765 location-stack.php:846
+msgid "Café Kostbar / Mensacafé und Snacks"
+msgstr ""
+
+#: location-stack.php:239 location-stack.php:715 location-stack.php:766
+#: location-stack.php:775 location-stack.php:847
+msgid "Im Gebäude CITY GATE"
+msgstr ""
+
+#: location-stack.php:247
+msgid "U5 / Musterschule"
+msgstr ""
+
+#: location-stack.php:253 location-stack.php:397
+msgid "U4 / Merianplatz"
+msgstr ""
+
+#: location-stack.php:259
+msgid "U4 / Höhenstraße"
+msgstr ""
+
+#: location-stack.php:265
+msgid "U4 / Willy-Brandt-Platz"
+msgstr ""
+
+#: location-stack.php:271
+msgid "U4, U5, U6, U7 / Konstablerwache"
+msgstr ""
+
+#: location-stack.php:277
+msgid "U6, U7 / Zoo"
+msgstr ""
+
+#: location-stack.php:283
+msgid "U6, U7 / Alte Oper"
+msgstr ""
+
+#: location-stack.php:289
+msgid "U5 / Hauptfriedhof"
+msgstr ""
+
+#: location-stack.php:295
+msgid "U5 / Marbachweg/Sozialzentrum"
+msgstr ""
+
+#: location-stack.php:301
+msgid "U5 / Gießener Straße"
+msgstr ""
+
+#: location-stack.php:307
+msgid "U5 / Theobald-Ziegler-Straße"
+msgstr ""
+
+#: location-stack.php:313
+msgid "U5 / Ronneburgstraße"
+msgstr ""
+
+#: location-stack.php:319
+msgid "U1, U2, U3 / Dornbusch"
+msgstr ""
+
+#: location-stack.php:325
+msgid "U1, U2, U3 / Fritz-Tarnow-Straße"
+msgstr ""
+
+#: location-stack.php:331
+msgid "U1, U2, U3 / Hügelstraße"
+msgstr ""
+
+#: location-stack.php:337
+msgid "U1, U2, U3 / Holzhausenstraße"
+msgstr ""
+
+#: location-stack.php:343
+msgid "U1, U2, U3 / Grüneburgweg"
+msgstr ""
+
+#: location-stack.php:349
+msgid "U1, U2, U3 / Eschenheimer Tor"
+msgstr ""
+
+#: location-stack.php:355
+msgid "U1, U2, U3, U6, U7 /Hauptwache"
+msgstr ""
+
+#: location-stack.php:361
+msgid "U4 / Hauptbahnhof"
+msgstr ""
+
+#: location-stack.php:367
+msgid "U4 / Festhalle / Messe"
+msgstr ""
+
+#: location-stack.php:373
+msgid "U6 / Ostbahnhof"
+msgstr ""
+
+#: location-stack.php:379
+msgid "U7 / Habsburgerallee"
+msgstr ""
+
+#: location-stack.php:385
+msgid "U7 / Parlamentsplatz"
+msgstr ""
+
+#: location-stack.php:391
+msgid "U7 / Eissporthalle"
+msgstr ""
+
+#: location-stack.php:403
+msgid "U4 / Bornheim Mitte"
+msgstr ""
+
+#: location-stack.php:409
+msgid "U4 / Bornheim Seckbacher Landstraße"
+msgstr ""
+
+#: location-stack.php:417
+msgid "Linie 32 / Nibelungenplatz/ University of Applied Sciences (UAS)"
+msgstr ""
+
+#: location-stack.php:418
+msgid "Bushaltestelle „Nibelungenplatz/UAS“ direkt vor dem Objekt"
+msgstr ""
+
+#: location-stack.php:418
+msgid ""
+"Mit dem Bus fährt man 8 Min. vom Nibelungenplatz zur Konstablerwache (4 "
+"Haltestellen); Taktung alle 10 Min."
+msgstr ""
+
+#: location-stack.php:426
+msgid "Linie 32 / Deutsche Nationalbibliothek"
+msgstr ""
+
+#: location-stack.php:432
+msgid "Linie 32 / Bürgerhospital"
+msgstr ""
+
+#: location-stack.php:438
+msgid "Linie 32 / Günthersburgallee"
+msgstr ""
+
+#: location-stack.php:446
+msgid ""
+"Linie 18 / Nibelungenplatz/Frankfurt University of Applied Sciences (UAS)"
+msgstr ""
+
+#: location-stack.php:447
+msgid "Tram-Haltestelle „Nibelungenplatz/ UAS“ in ca. 3 Gehminuten"
+msgstr ""
+
+#: location-stack.php:447
+msgid ""
+"Mit der Straßenbahn fährt man 8 Min. vom Nibelungenplatz zur Konstablerwache "
+"(4 Haltestellen); Taktung alle 10 Min."
+msgstr ""
+
+#: location-stack.php:455
+msgid "Linie 12 / Rothschildallee"
+msgstr ""
+
+#: location-stack.php:461
+msgid "Linie 12, Linie 18 / Rohrbachstraße/Friedberger Landstraße"
+msgstr ""
+
+#: location-stack.php:467
+msgid "Linie 12 / Rohrbachstraße"
+msgstr ""
+
+#: location-stack.php:473
+msgid "Linie 18 / Münzenbergerstraße"
+msgstr ""
+
+#: location-stack.php:479
+msgid "Linie 18 / Wasserpark"
+msgstr ""
+
+#: location-stack.php:485
+msgid "Linie 12, Linie 18 / Friedberger Platz"
+msgstr ""
+
+#: location-stack.php:491
+msgid "Linie 12, Linie 18 / Hessendenkmahl"
+msgstr ""
+
+#: location-stack.php:497
+msgid "Linie 12, Linie 18 / Konstablerwache"
+msgstr ""
+
+#: location-stack.php:505
+msgid "Hauptbahnhof"
+msgstr ""
+
+#: location-stack.php:511
+msgid "Taunusanlage"
+msgstr ""
+
+#: location-stack.php:517
+msgid "Hauptwache"
+msgstr ""
+
+#: location-stack.php:523
+msgid "Konstablerwache"
+msgstr ""
+
+#: location-stack.php:529
+msgid "Ostendstraße"
+msgstr ""
+
+#: location-stack.php:537
+msgid "Megaron / griechisches Restaurant"
+msgstr ""
+
+#: location-stack.php:538
+msgid "Spohrstraße 26"
+msgstr ""
+
+#: location-stack.php:544
+msgid "Umi Sushi / japanisches Restaurant"
+msgstr ""
+
+#: location-stack.php:545
+msgid "Friedberger Landstraße 140"
+msgstr ""
+
+#: location-stack.php:551
+msgid "Little India / indisches Restaurant"
+msgstr ""
+
+#: location-stack.php:552
+msgid "Glauburgstraße 6"
+msgstr ""
+
+#: location-stack.php:558
+msgid "Al Terrazzino / italienisches Restaurant"
+msgstr ""
+
+#: location-stack.php:559
+msgid "Rothschildallee 52"
+msgstr ""
+
+#: location-stack.php:565
+msgid "Schandis / persisches Restaurant"
+msgstr ""
+
+#: location-stack.php:566
+msgid "Nordendstraße 2"
+msgstr ""
+
+#: location-stack.php:572
+msgid "L‘isola Sarda / itlalienisches Restaurant"
+msgstr ""
+
+#: location-stack.php:573
+msgid "Rothschildallee 38"
+msgstr ""
+
+#: location-stack.php:579
+msgid "Combui / vietnamesisch Restaurant"
+msgstr ""
+
+#: location-stack.php:580
+msgid "Friedberger Landstraße 138"
+msgstr ""
+
+#: location-stack.php:586
+msgid "Saigon / vietnamesisch Restaurant"
+msgstr ""
+
+#: location-stack.php:587
+msgid "Hallgartenstraße 61"
+msgstr ""
+
+#: location-stack.php:593
+msgid "Aqui Santo Domingo / karibisches Restaurant"
+msgstr ""
+
+#: location-stack.php:594
+msgid "Rotlintstraße 94"
+msgstr ""
+
+#: location-stack.php:600
+msgid "Odyssee Kult / internationale Küche"
+msgstr ""
+
+#: location-stack.php:601
+msgid "Weberstraße 77"
+msgstr ""
+
+#: location-stack.php:607
+msgid "Bellavista / itlalienisches Restaurant"
+msgstr ""
+
+#: location-stack.php:608
+msgid "Friedberger Landstraße 95"
+msgstr ""
+
+#: location-stack.php:614
+msgid "Quan Van / vietnamesisches Restaurant"
+msgstr ""
+
+#: location-stack.php:615
+msgid "Schwarzburgstraße 74"
+msgstr ""
+
+#: location-stack.php:621
+msgid "Berliner / regionale Küche"
+msgstr ""
+
+#: location-stack.php:622
+msgid "Weberstraße 84"
+msgstr ""
+
+#: location-stack.php:628
+msgid "Alhambra / spanisches Restaurant"
+msgstr ""
+
+#: location-stack.php:629
+msgid "Lortzingstraße 15"
+msgstr ""
+
+#: location-stack.php:635
+msgid "Gilgamesch / orientalisches Restaurant"
+msgstr ""
+
+#: location-stack.php:636
+msgid "Rotlintstraße 81"
+msgstr ""
+
+#: location-stack.php:642
+msgid "Adolon / griechisches Restaurant"
+msgstr ""
+
+#: location-stack.php:643
+msgid "Weberstraße 90"
+msgstr ""
+
+#: location-stack.php:649
+msgid "Alma / portugiesisches Restaurant"
+msgstr ""
+
+#: location-stack.php:650
+msgid "Schwarzburgstraße 78"
+msgstr ""
+
+#: location-stack.php:656
+msgid "Café Größenwahn / frankfurter Küche & international"
+msgstr ""
+
+#: location-stack.php:657
+msgid "Lenaustraße 97"
+msgstr ""
+
+#: location-stack.php:663
+msgid "New Backstage / regionale Küche"
+msgstr ""
+
+#: location-stack.php:664
+msgid "Rothschildallee 36"
+msgstr ""
+
+#: location-stack.php:670
+msgid "Mounir / marokkanische Küche"
+msgstr ""
+
+#: location-stack.php:671
+msgid "Rohrbachstraße 41"
+msgstr ""
+
+#: location-stack.php:677
+msgid "essWERK / Mensa University of Applied Science (UAS)"
+msgstr ""
+
+#: location-stack.php:678
+msgid "Im Unicampus"
+msgstr ""
+
+#: location-stack.php:684
+msgid "Mensa Goethe Universität Frankfurt (UAS)"
+msgstr ""
+
+#: location-stack.php:685
+msgid "Im Campus Westend"
+msgstr ""
+
+#: location-stack.php:693
+msgid "Pizzeria Olbia / italienisches Restaurant"
+msgstr ""
+
+#: location-stack.php:694
+msgid "Glauburgstraße 14"
+msgstr ""
+
+#: location-stack.php:700
+msgid "Phoenix Tea House / Tee + Snacks"
+msgstr ""
+
+#: location-stack.php:701
+msgid "Friedberger Landstraße 82"
+msgstr ""
+
+#: location-stack.php:707
+msgid "Lucille / Snacks"
+msgstr ""
+
+#: location-stack.php:708
+msgid "Friedberger Landstraße 100"
+msgstr ""
+
+#: location-stack.php:714
+msgid "Subway"
+msgstr ""
+
+#: location-stack.php:723
+msgid "Café Awake"
+msgstr ""
+
+#: location-stack.php:724
+msgid "im Gebäude CITY GATE"
+msgstr ""
+
+#: location-stack.php:730
+msgid "Rosa Canina / Eisdiele"
+msgstr ""
+
+#: location-stack.php:731
+msgid "Spohrstraße 41"
+msgstr ""
+
+#: location-stack.php:737
+msgid "Café Deolla / Snacks"
+msgstr ""
+
+#: location-stack.php:738
+msgid "Nordendstraße 10"
+msgstr ""
+
+#: location-stack.php:744
+msgid "Glauburg Café / Snacks"
+msgstr ""
+
+#: location-stack.php:745
+msgid "Glauburgstraße 28"
+msgstr ""
+
+#: location-stack.php:751
+msgid "Café Rotlint / Snacks"
+msgstr ""
+
+#: location-stack.php:752
+msgid "Rotlintstraße 58"
+msgstr ""
+
+#: location-stack.php:758
+msgid "Carte blanche / internationale Küche"
+msgstr ""
+
+#: location-stack.php:759
+msgid "Egenolffstraße 39"
+msgstr ""
+
+#: location-stack.php:774
+msgid "REWE Supermarkt"
+msgstr ""
+
+#: location-stack.php:783
+msgid "Luise / Café-Weinbar"
+msgstr ""
+
+#: location-stack.php:784
+msgid "Rothschildallee 20"
+msgstr ""
+
+#: location-stack.php:790
+msgid "Zappbar / Musicbar"
+msgstr ""
+
+#: location-stack.php:791
+msgid "Glauburgstraße 1"
+msgstr ""
+
+#: location-stack.php:797
+msgid "Feinstaub / Musicbar"
+msgstr ""
+
+#: location-stack.php:798
+msgid "Friedberger Landstraße 131"
+msgstr ""
+
+#: location-stack.php:804
+msgid "Tiefengrund / Musicbar"
+msgstr ""
+
+#: location-stack.php:805
+msgid "Friedberger Landstraße 116"
+msgstr ""
+
+#: location-stack.php:811
+msgid "Gudes Frankfurt / Kiosk"
+msgstr ""
+
+#: location-stack.php:812
+msgid "Matthias-Beltz-Platz"
+msgstr ""
+
+#: location-stack.php:818
+msgid "WeinBächer / Weintaverne"
+msgstr ""
+
+#: location-stack.php:819
+msgid "Nibelungenallee 29"
+msgstr ""
+
+#: location-stack.php:825
+msgid "Das kleine Haus / Snacks"
+msgstr ""
+
+#: location-stack.php:826
+msgid "Spohrstraße 46"
+msgstr ""
+
+#: location-stack.php:840
+msgid "Mensa University of Applied Sciences (UAS)"
+msgstr ""
+
+#: location-stack.php:904
+msgid "The Flag Frankfurt, Student Apartments"
+msgstr ""
+
+#: location-stack.php:962
+msgid "Deutsche Nationalbibliothek"
+msgstr ""
+
+#: location-stack.php:970
+msgid "Palmengarten Frankfurt"
+msgstr ""
+
+#: location-stack.php:978
+msgid "Zoo Frankfurt"
+msgstr ""
+
+#: location-stack.php:986
+msgid "Alte Oper Frankfurt"
+msgstr ""
+
+#: location-stack.php:994
+msgid "CITY GATE"
+msgstr ""
+
+#: location-stack.php:995 location-stack.php:1004
+msgid "CITY GATE Frankfurt"
+msgstr ""
+
+#: location-stack.php:995 location-stack.php:1004
+msgid "Nibelungenplatz 3"
+msgstr ""
+
+#: location-stack.php:995 location-stack.php:1004
+msgid "60318 Frankfurt am Main"
+msgstr ""
+
+#: location-stack.php:995 location-stack.php:1004
+msgid "Frankfurt Innenstadt in ca. 25 Gehminuten."
+msgstr ""
+
+#: location-stack.php:995
+msgid "Vollentwickelte Infrastruktur im Umfeld."
+msgstr ""
+
+#: location-stack.php:995
+msgid "Hohe Dichte an Restaurants und Geschäften in direkter Nachbarschaft."
+msgstr ""
+
+#: location-stack.php:995
+msgid "REWE Markt im Gebäude."
+msgstr "REWE supermarket inside the building."
+
+#: location-stack.php:1003
+msgid "Frankfurt University of Applied Sciences (UAS)"
+msgstr ""
+
+#: location-stack.php:1003
+msgid "im CITY GATE"
+msgstr ""
+
+#: location-stack.php:1004
+msgid "Hohe Dichte von Bildungsinstituten auf der Campus-Meile."
+msgstr ""
