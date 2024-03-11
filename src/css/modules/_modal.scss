@@ -40,6 +40,7 @@
 // close icon
 .c-modal__close {
   position: absolute;
+  z-index: 1000; // > leaflet
   right: 2rem;
   top: 2rem;
 
@@ -57,6 +58,7 @@
 
 .c-modal__map-zoom {
   position: absolute;
+  z-index: 1000; // > leaflet
   right: 2rem;
   top: 50%;
   transform: translateY(-50%);

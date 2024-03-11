@@ -1,3 +1,6 @@
+import L from 'leaflet';
+import './leaflet-tilelayer-colorizr';
+
 // Map modal parent class (will be extended)
 class MapModal {
   constructor(modalEl) {
@@ -13,20 +16,21 @@ class MapModal {
     this.MODAL_OPEN_FLAG = 'is-open';
 
     // map attributes
-    this.MAP_CENTER = {
-      lat: 50.128754,
-      lng: 8.691756,
-    };
-    this.initialCenter = this.MAP_CENTER;
+    this.initialCenter = L.latLng(50.128754, 8.691756);
     this.initialZoom = 15;
-    this.mapStyles = null;
 
     this.markers = [];
     this.infowindows = [];
+    this.tileColor = {
+      r: 0,
+      g: 0,
+      b: 0,
+    };
   }
 
   init() {
     this.initMap();
+    this.initTiles();
     this.initZoomers();
     this.addMarkers();
     this.addAutobahnMarkers();
@@ -36,43 +40,39 @@ class MapModal {
   }
 
   initMap() {
-    this.map = new window.google.maps.Map(this.mapEl, {
+    this.map = L.map(this.mapEl, {
       zoom: this.initialZoom,
-      styles: this.mapStyles,
       center: this.initialCenter,
-      disableDefaultUI: true,
-      gestureHandling: 'greedy',
+      zoomControl: false,
     });
+
+    this.map.attributionControl.setPrefix('<a href="https://leafletjs.com" title="A JavaScript library for interactive maps">Leaflet</a>');
   }
 
-  initOverlay() {
-    if (this.map) {
-      let imageBounds = {
-        north: 50.162275,
-        south: 50.102031,
-        east: 8.753333,
-        west: 8.622927,
-      };
+  initTiles() {
+    const color = this.tileColor;
+    L.tileLayer.colorizr('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
+      colorize: function(pixel) {
+        const grayscaled = (pixel.r + pixel.g + pixel.b) / 3;
+        const brightness = 1.2;
 
-      new window.google.maps.GroundOverlay(
-        window.MAP_ASSETS_BASE + 'images/layout/map-travel-bg.png',
-        imageBounds,
-        {
-          opacity: 1,
-          clickable: true,
-          map: this.map,
-        }
-      );
-    }
+        return {
+          r: (grayscaled * color.r * brightness) / 255,
+          g: (grayscaled * color.g * brightness) / 255,
+          b: (grayscaled * color.b * brightness) / 255,
+        };
+      },
+    }).addTo(this.map);
   }
 
   initZoomers() {
     if (this.modalEl && this.map) {
       // setup zoom listeners
-      window.google.maps.event.addDomListener(this.modalEl.querySelector('[data-map-zoom-in]'), 'click', () => {
+      this.modalEl.querySelector('[data-map-zoom-in]').addEventListener('click', () => {
         this.map.setZoom(this.map.getZoom() + 1);
       });
-      window.google.maps.event.addDomListener(this.modalEl.querySelector('[data-map-zoom-out]'), 'click', () => {
+      this.modalEl.querySelector('[data-map-zoom-out]').addEventListener('click', () => {
         this.map.setZoom(this.map.getZoom() - 1);
       });
     }
@@ -83,24 +83,24 @@ class MapModal {
     this.addMarkersFactory({
       icon: 'zoo',
       locationsKey: 'poiZoo',
-      size: new window.google.maps.Size(60, 44),
-      zIndex: 0,
+      iconSize: [60, 44],
+      zIndexOffset: 0,
     });
 
     // opera
     this.addMarkersFactory({
       icon: 'alte-oper',
       locationsKey: 'poiOpera',
-      size: new window.google.maps.Size(60, 43),
-      zIndex: 0,
+      iconSize: [60, 43],
+      zIndexOffset: 0,
     });
 
     // palmengarten
     this.addMarkersFactory({
       icon: 'palmengarten',
       locationsKey: 'poiPalmengarten',
-      size: new window.google.maps.Size(60, 42),
-      zIndex: 0,
+      iconSize: [60, 42],
+      zIndexOffset: 0,
     });
   }
 
@@ -108,63 +108,53 @@ class MapModal {
     this.addMarkersFactory({
       icon: 'adickesallee',
       locationsKey: 'adickesallee',
-      size: new window.google.maps.Size(127, 30),
-      zIndex: 0,
+      iconSize: [127, 30],
+      zIndexOffset: 0,
     });
 
     this.addMarkersFactory({
       icon: 'arrow-a66',
       locationsKey: 'arrowA66',
-      size: new window.google.maps.Size(123, 33),
-      zIndex: 0,
+      iconSize: [123, 33],
+      zIndexOffset: 0,
     });
 
     this.addMarkersFactory({
       icon: 'miquelallee',
       locationsKey: 'miquelallee',
-      size: new window.google.maps.Size(112, 33),
-      zIndex: 0,
+      iconSize: [112, 33],
+      zIndexOffset: 0,
     });
 
     this.addMarkersFactory({
       icon: 'nibelungenallee',
       locationsKey: 'nibelungenallee',
-      size: new window.google.maps.Size(157, 30),
-      zIndex: 0,
+      iconSize: [157, 30],
+      zIndexOffset: 0,
     });
   }
 
   // Autobahn markers
   addAutobahnMarkers() {
     // a661
-    this.markers.push(new window.google.maps.Marker({
-      map: this.map,
-      position: {
-        lat: 50.141351,
-        lng: 8.706293,
-      },
-      icon: {
-        url: window.MAP_ASSETS_BASE + 'images/layout/markers/a661.png',
-        size: new window.google.maps.Size(73, 54),
-        anchor: new window.google.maps.Point(36, 27),
-      },
-      zIndex: 0,
-    }));
+    this.markers.push(L.marker([50.141351, 8.706293], {
+      icon: L.icon({
+        iconUrl: window.MAP_ASSETS_BASE + 'images/layout/markers/a661.png',
+        iconSize: [73, 54],
+        iconAnchor: [36, 27],
+      }),
+      zIndexOffset: 0,
+    }).addTo(this.map));
 
     // a66
-    this.markers.push(new window.google.maps.Marker({
-      map: this.map,
-      position: {
-        lat: 50.132671,
-        lng: 8.649927,
-      },
-      icon: {
-        url: window.MAP_ASSETS_BASE + 'images/layout/markers/a66.png',
-        size: new window.google.maps.Size(73, 54),
-        anchor: new window.google.maps.Point(36, 27),
-      },
-      zIndex: 0,
-    }));
+    this.markers.push(L.marker([50.132671, 8.649927], {
+      icon: L.icon({
+        iconUrl: window.MAP_ASSETS_BASE + 'images/layout/markers/a66.png',
+        iconSize: [73, 54],
+        iconAnchor: [36, 27],
+      }),
+      zIndexOffset: 0,
+    }).addTo(this.map));
   }
 
   // should be overridden by subclasses
@@ -173,6 +163,7 @@ class MapModal {
 
   openModal() {
     this.modalEl.classList.add(this.MODAL_OPEN_FLAG);
+    this.map.invalidateSize();
   }
 
   closeModal() {
@@ -209,21 +200,26 @@ class MapModal {
 
   // general factory method for adding standard markers
   addMarkersFactory(options) {
+    const iconSize = options.iconSize || [22, 22];
+    const iconTop = iconSize[1] / -2;
+
     let baseOptions = {
-      map: this.map,
-      icon: {
-        url: `${window.MAP_ASSETS_BASE}images/layout/markers/${options.icon}.png`,
-        size: options.size || new window.google.maps.Size(22, 22),
-        anchor: options.anchor,
-      },
-      zIndex: (typeof options.zIndex !== 'undefined') ? options.zIndex : 10,
+      icon: L.icon({
+        iconUrl: `${window.MAP_ASSETS_BASE}images/layout/markers/${options.icon}.png`,
+        iconSize,
+        iconAnchor: options.iconAnchor || undefined,
+        popupAnchor: options.popupAnchor || [0, iconTop],
+        tooltipAnchor: options.tooltipAnchor || [0, iconTop],
+      }),
+      zIndexOffset: (typeof options.zIndexOffset !== 'undefined') ? options.zIndexOffset : 10,
     };
 
     // loop through locations and add markers
     if (window.MAP_LOCATIONS && window.MAP_LOCATIONS[options.locationsKey]) {
       window.MAP_LOCATIONS[options.locationsKey].forEach((markerOptions) => {
         // prepare the infowindow
-        let infowindow = new window.google.maps.InfoWindow({
+        let infowindow = L.tooltip({
+          direction: 'top',
           content: `
             <article class="c-map-infowindow">
               <strong>${markerOptions.name}</strong>
@@ -237,26 +233,11 @@ class MapModal {
         this.infowindows.push(infowindow);
 
         // finally set the marker and add it to the markers list
-        let marker = new window.google.maps.Marker(Object.assign(baseOptions, {
-          position: markerOptions.coords,
+        let marker = L.marker(markerOptions.coords, Object.assign(baseOptions, {
           title: markerOptions.name,
-        }));
+        })).addTo(this.map).bindTooltip(infowindow);
 
         this.markers.push(marker);
-
-        // set mouseover handlers to open the corresponding infowindow
-        let openHandler = () => {
-          // close other infowindows
-          this.infowindows.forEach((infowindow) => infowindow.close());
-          // open infowindow
-          infowindow.open(this.map, marker);
-        };
-        marker.addListener('mouseover', openHandler);
-        marker.addListener('click', openHandler);
-
-        marker.addListener('mouseout', () => {
-          infowindow.close();
-        });
       });
     }
   }
@@ -268,7 +249,11 @@ class TravelModal extends MapModal {
     super(modalEl);
 
     this.initialZoom = 15;
-    this.mapStyles = window.MAP_STYLES.travel;
+    this.tileColor = {
+      r: 112,
+      g: 215,
+      b: 232,
+    };
     this.init();
   }
 
@@ -277,17 +262,17 @@ class TravelModal extends MapModal {
     this.addMarkersFactory({
       icon: 'gebaeude-icon',
       locationsKey: 'citygate',
-      size: new window.google.maps.Size(64, 90),
-      anchor: new window.google.maps.Point(64, 90),
-      zIndex: 0,
+      iconSize: [64, 90],
+      iconAnchor: [64, 90],
+      tooltipAnchor: [-32, -90],
+      zIndexOffset: 0,
     });
 
     // underground
     this.addMarkersFactory({
       icon: 'ubahn1',
       locationsKey: 'undergroundNearby',
-      size: new window.google.maps.Size(42, 42),
-      anchor: new window.google.maps.Point(21, 21),
+      iconSize: [42, 42],
     });
 
     this.addMarkersFactory({
@@ -299,8 +284,7 @@ class TravelModal extends MapModal {
     this.addMarkersFactory({
       icon: 'tram1',
       locationsKey: 'tramNearby',
-      size: new window.google.maps.Size(42, 42),
-      anchor: new window.google.maps.Point(21, 21),
+      iconSize: [42, 42],
     });
 
     this.addMarkersFactory({
@@ -312,8 +296,7 @@ class TravelModal extends MapModal {
     this.addMarkersFactory({
       icon: 'bus1',
       locationsKey: 'busNearby',
-      size: new window.google.maps.Size(37, 37),
-      anchor: new window.google.maps.Point(18, 18),
+      iconSize: [37, 37],
     });
 
     this.addMarkersFactory({
@@ -331,7 +314,7 @@ class TravelModal extends MapModal {
     this.addMarkersFactory({
       icon: 'taxi',
       locationsKey: 'taxi',
-      size: new window.google.maps.Size(21, 21),
+      iconSize: [21, 21],
     });
 
     // Gastro
@@ -348,7 +331,11 @@ class AroundModal extends MapModal {
     super(modalEl);
 
     this.initialZoom = 17;
-    this.mapStyles = window.MAP_STYLES.around;
+    this.tileColor = {
+      r: 255,
+      g: 146,
+      b: 64,
+    };
     this.init();
 
     this.addCircles();
@@ -362,14 +349,12 @@ class AroundModal extends MapModal {
     ];
 
     circlesRadiuses.forEach((radius) => {
-      new window.google.maps.Circle({
-        strokeWeight: 0,
+      L.circle(this.initialCenter, {
+        stroke: false,
         fillColor: '#fff',
         fillOpacity: 0.3,
-        map: this.map,
-        center: this.MAP_CENTER,
-        radius: radius,
-      });
+        radius,
+      }).addTo(this.map);
     });
   }
 
@@ -378,9 +363,10 @@ class AroundModal extends MapModal {
     this.addMarkersFactory({
       icon: 'gebaeude-icon',
       locationsKey: 'citygate',
-      size: new window.google.maps.Size(64, 90),
-      anchor: new window.google.maps.Point(64, 90),
-      zIndex: 0,
+      iconSize: [64, 90],
+      iconAnchor: [64, 90],
+      tooltipAnchor: [-32, -90],
+      zIndexOffset: 0,
     });
 
     // gastro markers
@@ -417,11 +403,12 @@ class CampusMileModal extends MapModal {
     super(modalEl);
 
     this.initialZoom = 16;
-    this.initialCenter = {
-      lat: 50.129622,
-      lng: 8.677280,
+    this.initialCenter = L.latLng(50.129622, 8.677280);
+    this.tileColor = {
+      r: 116,
+      g: 203,
+      b: 100,
     };
-    this.mapStyles = window.MAP_STYLES.campusmile;
     this.init();
   }
 
@@ -430,9 +417,10 @@ class CampusMileModal extends MapModal {
     this.addMarkersFactory({
       icon: 'gebaeude-uni',
       locationsKey: 'citygateUni',
-      size: new window.google.maps.Size(70, 90),
-      anchor: new window.google.maps.Point(70, 90),
-      zIndex: 0,
+      iconSize: [70, 90],
+      iconAnchor: [70, 90],
+      tooltipAnchor: [-35, -90],
+      zIndexOffset: 0,
     });
 
     // campus restaurants
@@ -445,22 +433,22 @@ class CampusMileModal extends MapModal {
     this.addMarkersFactory({
       icon: 'bibliothek',
       locationsKey: 'libraries',
-      size: new window.google.maps.Size(87, 63),
+      iconSize: [87, 63],
     });
 
     // merz headquarters
     this.addMarkersFactory({
       icon: 'merz',
       locationsKey: 'merzHQ',
-      size: new window.google.maps.Size(51, 49),
+      iconSize: [51, 49],
     });
 
     // campusmile
     this.addMarkersFactory({
       icon: 'campus-mile',
       locationsKey: 'campusMile',
-      size: new window.google.maps.Size(137, 33),
-      zIndex: 0,
+      iconSize: [137, 33],
+      zIndexOffset: 0,
     });
 
     // campus icons
@@ -468,7 +456,7 @@ class CampusMileModal extends MapModal {
       this.addMarkersFactory({
         icon: `campus${i}`,
         locationsKey: `campus${i}`,
-        size: new window.google.maps.Size(71, 49),
+        iconSize: [71, 49],
       });
     }
   }
@@ -478,7 +466,7 @@ class CampusMileModal extends MapModal {
 // Wrapper class around modals
 class MapModals {
   constructor() {
-    if (typeof window.google !== 'undefined' && window.MAP_ASSETS_BASE && window.MAP_LOCATIONS && window.MAP_STYLES) {
+    if (window.MAP_ASSETS_BASE && window.MAP_LOCATIONS) {
       this.modalsWrapper = document.querySelector('[data-map-modal-wrapper]');
       if (this.modalsWrapper) {
         // move modalswrapper below body
@@ -508,8 +496,6 @@ class MapModals {
   }
 }
 
-// triggered by google script callback
-window.initMap = function() {
+document.addEventListener('DOMContentLoaded', function() {
   new MapModals();
-};
-
+});
