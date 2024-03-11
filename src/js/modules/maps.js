@@ -55,7 +55,7 @@ class MapModal {
       attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
       colorize: function(pixel) {
         const grayscaled = (pixel.r + pixel.g + pixel.b) / 3;
-        const brightness = 1.2;
+        const brightness = 1.25;
 
         return {
           r: (grayscaled * color.r * brightness) / 255,
@@ -352,7 +352,7 @@ class AroundModal extends MapModal {
       L.circle(this.initialCenter, {
         stroke: false,
         fillColor: '#fff',
-        fillOpacity: 0.3,
+        fillOpacity: 0.25,
         radius,
       }).addTo(this.map);
     });

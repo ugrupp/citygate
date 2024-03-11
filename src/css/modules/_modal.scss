@@ -54,6 +54,18 @@
   background-color: #eee;
   height: 100%;
   width: 100%;
+
+  #map-modal-travel & {
+    background-color: $color-one;
+  }
+
+  #map-modal-around & {
+    background-color: $color-two;
+  }
+
+  #map-modal-campusmile & {
+    background-color: $color-three;
+  }
 }
 
 .c-modal__map-zoom {
