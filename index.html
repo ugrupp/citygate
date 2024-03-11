@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>citygate animation</title>
-    <link href="css/main.min.css" rel="stylesheet">
+    <link href="/css/main.min.css" rel="stylesheet">
     <style type="text/css">
       body {
         margin: 0;
@@ -27,98 +27,128 @@
       <div class="stack" data-stack=""><a class="stack__zoom" href="#map-modal-travel" data-map-modal-open="">
           <div class="c-icon-default">
             <svg class="c-icon">
-              <use xlink:href="images/svg/sprite.svg#zoom"></use>
+              <use xlink:href="/images/svg/sprite.svg#zoom"></use>
             </svg>
             <div class="u-invisible">Vergrößern</div>
           </div></a><a class="stack__zoom" href="#map-modal-around" data-map-modal-open="">
           <div class="c-icon-default">
             <svg class="c-icon">
-              <use xlink:href="images/svg/sprite.svg#zoom"></use>
+              <use xlink:href="/images/svg/sprite.svg#zoom"></use>
             </svg>
             <div class="u-invisible">Vergrößern</div>
           </div></a><a class="stack__zoom" href="#map-modal-campusmile" data-map-modal-open="">
           <div class="c-icon-default">
             <svg class="c-icon">
-              <use xlink:href="images/svg/sprite.svg#zoom"></use>
+              <use xlink:href="/images/svg/sprite.svg#zoom"></use>
             </svg>
             <div class="u-invisible">Vergrößern</div>
           </div></a>
         <div class="stack__items">
-          <div class="stack__item stack__item--one" data-stack-item="" id="stack-level-1"><img class="stack__img" src="images/layout/preview-travel.png" alt="Die Erreichbarkeit"><a class="stack__img-zoom" href="#map-modal-travel" data-map-modal-open=""></a></div>
-          <div class="stack__item stack__item--two" data-stack-item="" id="stack-level-2"><img class="stack__img" src="images/layout/preview-around.png" alt="Die Umgebung"><a class="stack__img-zoom" href="#map-modal-around" data-map-modal-open=""></a></div>
-          <div class="stack__item stack__item--three" data-stack-item="" id="stack-level-3"><img class="stack__img" src="images/layout/preview-campusmile.png" alt="Die „Campus Mile“"><a class="stack__img-zoom" href="#map-modal-campusmile" data-map-modal-open=""></a></div>
+          <div class="stack__item stack__item--one" data-stack-item="" id="stack-level-1"><img class="stack__img" src="/images/layout/preview-travel.png" alt="Die Erreichbarkeit"><a class="stack__img-zoom" href="#map-modal-travel" data-map-modal-open=""></a></div>
+          <div class="stack__item stack__item--two" data-stack-item="" id="stack-level-2"><img class="stack__img" src="/images/layout/preview-around.png" alt="Die Umgebung"><a class="stack__img-zoom" href="#map-modal-around" data-map-modal-open=""></a></div>
+          <div class="stack__item stack__item--three" data-stack-item="" id="stack-level-3"><img class="stack__img" src="/images/layout/preview-campusmile.png" alt="Die „Campus Mile“"><a class="stack__img-zoom" href="#map-modal-campusmile" data-map-modal-open=""></a></div>
         </div>
         <div class="stack__nav" data-stack-nav=""><a class="stack__nav-item stack__nav-item--one" href="#stack-level-1" data-stack-nav-item="">
             <svg class="c-icon">
-              <use xlink:href="images/svg/sprite.svg#right-chevron"></use>
+              <use xlink:href="/images/svg/sprite.svg#right-chevron"></use>
             </svg>Die Erreichbarkeit</a><a class="stack__nav-item stack__nav-item--two" href="#stack-level-2" data-stack-nav-item="">
             <svg class="c-icon">
-              <use xlink:href="images/svg/sprite.svg#right-chevron"></use>
+              <use xlink:href="/images/svg/sprite.svg#right-chevron"></use>
             </svg>Die Umgebung</a><a class="stack__nav-item stack__nav-item--three" href="#stack-level-3" data-stack-nav-item="">
             <svg class="c-icon">
-              <use xlink:href="images/svg/sprite.svg#right-chevron"></use>
+              <use xlink:href="/images/svg/sprite.svg#right-chevron"></use>
             </svg>Die „Campus Mile“</a></div>
       </div>
-      <div class="c-modals">
-        <div class="c-modal c-modal--one" id="map-modal-travel" data-map-modal="travel">
+      <div class="c-modals" data-map-modal-wrapper="">
+        <div class="c-modal" id="map-modal-travel" data-map-modal="travel">
           <div class="c-modal__map" data-map="travel"></div><a class="c-modal__close" href="javascript:void(0);" data-map-modal-close>
             <div class="c-icon-default c-icon-default--large">
               <svg class="c-icon">
-                <use xlink:href="images/svg/sprite.svg#close"></use>
+                <use xlink:href="/images/svg/sprite.svg#close"></use>
               </svg>
               <div class="u-invisible">Schließen</div>
             </div></a>
           <div class="c-modal__map-zoom c-zoom-control"><a class="c-zoom-control__control c-zoom-control__control--in" href="#" data-map-zoom-in>
               <svg class="c-icon">
-                <use xlink:href="images/svg/sprite.svg#plus"></use>
+                <use xlink:href="/images/svg/sprite.svg#plus"></use>
               </svg>
               <div class="u-invisible">Zoom in</div></a><a class="c-zoom-control__control c-zoom-control__control--out" href="#" data-map-zoom-out>
               <svg class="c-icon">
-                <use xlink:href="images/svg/sprite.svg#minus"></use>
+                <use xlink:href="/images/svg/sprite.svg#minus"></use>
               </svg>
               <div class="u-invisible">Zoom out</div></a></div>
         </div>
-        <div class="c-modal c-modal--one" id="map-modal-around" data-map-modal="around">
+        <div class="c-modal" id="map-modal-around" data-map-modal="around">
           <div class="c-modal__map" data-map="around"></div><a class="c-modal__close" href="javascript:void(0);" data-map-modal-close>
             <div class="c-icon-default c-icon-default--large">
               <svg class="c-icon">
-                <use xlink:href="images/svg/sprite.svg#close"></use>
+                <use xlink:href="/images/svg/sprite.svg#close"></use>
               </svg>
               <div class="u-invisible">Schließen</div>
             </div></a>
           <div class="c-modal__map-zoom c-zoom-control"><a class="c-zoom-control__control c-zoom-control__control--in" href="#" data-map-zoom-in>
               <svg class="c-icon">
-                <use xlink:href="images/svg/sprite.svg#plus"></use>
+                <use xlink:href="/images/svg/sprite.svg#plus"></use>
               </svg>
               <div class="u-invisible">Zoom in</div></a><a class="c-zoom-control__control c-zoom-control__control--out" href="#" data-map-zoom-out>
               <svg class="c-icon">
-                <use xlink:href="images/svg/sprite.svg#minus"></use>
+                <use xlink:href="/images/svg/sprite.svg#minus"></use>
               </svg>
               <div class="u-invisible">Zoom out</div></a></div>
         </div>
-        <div class="c-modal c-modal--one" id="map-modal-campusmile" data-map-modal="campusmile">
+        <div class="c-modal" id="map-modal-campusmile" data-map-modal="campusmile">
           <div class="c-modal__map" data-map="campusmile"></div><a class="c-modal__close" href="javascript:void(0);" data-map-modal-close>
             <div class="c-icon-default c-icon-default--large">
               <svg class="c-icon">
-                <use xlink:href="images/svg/sprite.svg#close"></use>
+                <use xlink:href="/images/svg/sprite.svg#close"></use>
               </svg>
               <div class="u-invisible">Schließen</div>
             </div></a>
           <div class="c-modal__map-zoom c-zoom-control"><a class="c-zoom-control__control c-zoom-control__control--in" href="#" data-map-zoom-in>
               <svg class="c-icon">
-                <use xlink:href="images/svg/sprite.svg#plus"></use>
+                <use xlink:href="/images/svg/sprite.svg#plus"></use>
               </svg>
               <div class="u-invisible">Zoom in</div></a><a class="c-zoom-control__control c-zoom-control__control--out" href="#" data-map-zoom-out>
               <svg class="c-icon">
-                <use xlink:href="images/svg/sprite.svg#minus"></use>
+                <use xlink:href="/images/svg/sprite.svg#minus"></use>
               </svg>
               <div class="u-invisible">Zoom out</div></a></div>
         </div>
       </div>
       <script>
-        window.MAP_ASSETS_BASE = 'http://city-gate-beta.com/wp-content/themes/enfold-child/citygate-animations/';
+        window.MAP_ASSETS_BASE = '/';
         
         window.MAP_LOCATIONS = {
+          nibelungenallee: [{
+            name: 'Campus-Meile',
+            coords: {
+              lat: 50.131253,
+              lng: 8.687117
+            }
+          }],
+         adickesallee: [{
+            name: 'Campus-Meile',
+            coords: {
+              lat: 50.131992,
+              lng: 8.679159
+            }
+          }],
+          miquelallee: [{
+            name: 'Campus-Meile',
+            coords: {
+              lat: 50.131643,
+              lng: 8.669279
+            }
+          }],
+          taxi: [
+            {
+              name: 'Taxi Frankfurt',
+              coords: {
+                lat: 50.101520,
+                lng: 8.655200,
+              },
+            },
+          ],
           underground: [
             {
               name: 'Deutsche Nationalbibliothek',
@@ -164,11 +194,10 @@
             },
             {
               name: 'Konstablerwache',
-              text: `
-                <p>Mit dem Bus fährt man 8 Min. vom Nibelungenplatz zur Konstablerwache (4 Haltestellen); Taktung alle 10 Min.</p>
-                <p>Mit der der Straßenbahn fährt man 8 Min. vom Nibelungenplatz zur Konstablerwache (4 Haltestellen); Taktung alle 10 Min.</p>
-                <p>Mit der U-Bahn fährt man 6 Min., die nächstgelegene U-Bahn-Station „Glauburgstraße“ befindet sich mit rd. 500 m (ca. 5 Gehminuten) in fußläufiger Entfernung; Taktung alle 7-8 Min.</p>
-              `,
+              text: '<p>Mit dem Bus fährt man 8 Min. vom Nibelungenplatz zur Konstablerwache (4 Haltestellen); Taktung alle 10 Min.</p>' +
+                '<p>Mit der der Straßenbahn fährt man 8 Min. vom Nibelungenplatz zur Konstablerwache (4 Haltestellen); Taktung alle 10 Min.</p>' +
+                '<p>Mit der U-Bahn fährt man 6 Min., die nächstgelegene U-Bahn-Station „Glauburgstraße“ befindet sich mit rd. 500 m (ca. 5 Gehminuten) in fußläufiger Entfernung; Taktung alle 7-8 Min.</p>'
+              ,
               coords: {
                 lat: 50.114527,
                 lng: 8.687977,
@@ -347,7 +376,7 @@
             },
           ],
         
-          tram: [
+          tramNearby: [
             {
               name: 'Nibelungenplatz/FH',
               coords: {
@@ -409,12 +438,10 @@
             },
           ],
         
-          restaurants: [
+          gastroCafe: [
             {
               name: 'Megaron',
-              text: `
-                <p>Spohrstraße 26</p>
-              `,
+              text: '<p>Spohrstraße 26</p>',
               coords: {
                 lat: 50.128115,
                 lng: 8.691089,
@@ -422,9 +449,26 @@
             },
             {
               name: 'Umi Sushi',
-              text: `
-                <p>Friedberger Landstraße 140</p>
-              `,
+              text: '<p>Friedberger Landstraße 140</p>',
+              coords: {
+                lat: 50.128495,
+                lng: 8.692858,
+              },
+            },
+          ],
+        
+          gastroResTravel: [
+            {
+              name: 'Megaron',
+              text: '<p>Spohrstraße 26</p>',
+              coords: {
+                lat: 50.128115,
+                lng: 8.691089,
+              },
+            },
+            {
+              name: 'Umi Sushi',
+              text: '<p>Friedberger Landstraße 140</p>',
               coords: {
                 lat: 50.128495,
                 lng: 8.692858,
@@ -449,35 +493,72 @@
             },
           ],
         
-          universities: [
+          campus2: [
             {
-              name: 'Goethe Uni Frankfurt',
-              text: `
-                <p>...</p>
-              `,
+              name: 'Campus Frankfurt University of Applied Sciences (UAS)',
               coords: {
-                lat: 50.127068,
-                lng: 8.667763,
+                lat: 50.130113,
+                lng: 8.693147,
               },
             },
-            {
-              name: 'FH Frankfurt',
-              text: `
-                <p>...</p>
-              `,
-              coords: {
-                lat: 50.128686,
-                lng: 8.691686,
-              },
-            },
+          ],
+        
+          campus3: [
             {
               name: 'Frankfurt School of Finance & Management',
-              text: `
-                <p>...</p>
-              `,
               coords: {
-                lat: 50.132954,
-                lng: 8.680820,
+                lat: 50.132054,
+                lng: 8.682819,
+              },
+            },
+          ],
+        
+          campus4: [
+            {
+              name: 'Frankfurt School Dorms',
+              coords: {
+                lat: 50.132528,
+                lng: 8.679502,
+              },
+            },
+          ],
+        
+          campus5: [
+            {
+              name: 'The Flag Campusmeile, Student Apartments',
+              coords: {
+                lat: 50.132914,
+                lng: 8.677382,
+              },
+            },
+          ],
+        
+          campus6: [
+            {
+              name: 'The Flag Frankfurt, Student Apartments',
+              coords: {
+                lat: 50.1312838,
+                lng: 8.6736083,
+              },
+            },
+          ],
+        
+          campus7: [
+            {
+              name: 'Deutsches Institut f. int. Pädagogische Forschung',
+              coords: {
+                lat: 50.130403,
+                lng: 8.667786,
+              },
+            },
+          ],
+        
+          campus8: [
+            {
+              name: 'Goethe Universität Frankfurt (Campus Westend)',
+              coords: {
+                lat: 50.128051,
+                lng: 8.666799,
               },
             },
           ],
@@ -485,12 +566,20 @@
           libraries: [
             {
               name: 'Deutsche Nationalbibliothek',
-              text: `
-                <p>...</p>
-              `,
+              text: '<p>...</p>',
               coords: {
                 lat: 50.131040,
                 lng: 8.683750,
+              },
+            },
+          ],
+        
+          merzHQ: [
+            {
+              name: 'Merz Headquarters',
+              coords: {
+                lat: 50.125903,
+                lng: 8.686652,
               },
             },
           ],
@@ -538,9 +627,7 @@
           citygateUni: [
             {
               name: 'City Gate',
-              text: `
-                <p>...</p>
-              `,
+              text: '<p>...</p>',
               coords: {
                 lat: 50.128754,
                 lng: 8.691756,
@@ -548,987 +635,8 @@
             },
           ],
         };
-        
-        window.MAP_STYLES = {
-          'travel': [
-            {
-              "elementType": "geometry",
-              "stylers": [
-                {
-                  "color": "#f5f5f5"
-                }
-              ]
-            },
-            {
-              "elementType": "labels.icon",
-              "stylers": [
-                {
-                  "visibility": "off"
-                }
-              ]
-            },
-            {
-              "elementType": "labels.text.fill",
-              "stylers": [
-                {
-                  "color": "#616161"
-                }
-              ]
-            },
-            {
-              "elementType": "labels.text.stroke",
-              "stylers": [
-                {
-                  "color": "#f5f5f5"
-                }
-              ]
-            },
-            {
-              "featureType": "administrative.land_parcel",
-              "elementType": "labels.text.fill",
-              "stylers": [
-                {
-                  "color": "#bdbdbd"
-                }
-              ]
-            },
-            {
-              "featureType": "administrative.locality",
-              "elementType": "labels",
-              "stylers": [
-                {
-                  "visibility": "off"
-                }
-              ]
-            },
-            {
-              "featureType": "landscape",
-              "elementType": "geometry",
-              "stylers": [
-                {
-                  "color": "#00d2ff"
-                }
-              ]
-            },
-            {
-              "featureType": "landscape.man_made",
-              "elementType": "geometry",
-              "stylers": [
-                {
-                  "visibility": "off"
-                }
-              ]
-            },
-            {
-              "featureType": "poi",
-              "elementType": "geometry",
-              "stylers": [
-                {
-                  "color": "#d2ed7e"
-                }
-              ]
-            },
-            {
-              "featureType": "poi",
-              "elementType": "labels.text.fill",
-              "stylers": [
-                {
-                  "color": "#757575"
-                }
-              ]
-            },
-            {
-              "featureType": "poi.attraction",
-              "elementType": "geometry",
-              "stylers": [
-                {
-                  "color": "#d2ed7e"
-                }
-              ]
-            },
-            {
-              "featureType": "poi.business",
-              "elementType": "geometry",
-              "stylers": [
-                {
-                  "color": "#d2ed7e"
-                }
-              ]
-            },
-            {
-              "featureType": "poi.government",
-              "elementType": "geometry",
-              "stylers": [
-                {
-                  "color": "#eeeeee"
-                },
-                {
-                  "visibility": "off"
-                }
-              ]
-            },
-            {
-              "featureType": "poi.medical",
-              "elementType": "geometry",
-              "stylers": [
-                {
-                  "visibility": "off"
-                }
-              ]
-            },
-            {
-              "featureType": "poi.park",
-              "elementType": "geometry",
-              "stylers": [
-                {
-                  "color": "#d2ed7e"
-                }
-              ]
-            },
-            {
-              "featureType": "poi.park",
-              "elementType": "labels.text.fill",
-              "stylers": [
-                {
-                  "color": "#69a500"
-                }
-              ]
-            },
-            {
-              "featureType": "poi.park",
-              "elementType": "labels.text.stroke",
-              "stylers": [
-                {
-                  "color": "#ffffff"
-                }
-              ]
-            },
-            {
-              "featureType": "poi.place_of_worship",
-              "elementType": "geometry",
-              "stylers": [
-                {
-                  "visibility": "off"
-                }
-              ]
-            },
-            {
-              "featureType": "poi.school",
-              "elementType": "geometry",
-              "stylers": [
-                {
-                  "visibility": "off"
-                }
-              ]
-            },
-            {
-              "featureType": "poi.school",
-              "elementType": "labels",
-              "stylers": [
-                {
-                  "visibility": "off"
-                }
-              ]
-            },
-            {
-              "featureType": "poi.sports_complex",
-              "elementType": "geometry",
-              "stylers": [
-                {
-                  "visibility": "off"
-                }
-              ]
-            },
-            {
-              "featureType": "road",
-              "elementType": "geometry",
-              "stylers": [
-                {
-                  "visibility": "simplified"
-                }
-              ]
-            },
-            {
-              "featureType": "road",
-              "elementType": "geometry.stroke",
-              "stylers": [
-                {
-                  "weight": 1
-                }
-              ]
-            },
-            {
-              "featureType": "road.arterial",
-              "elementType": "labels.text.fill",
-              "stylers": [
-                {
-                  "color": "#666666"
-                }
-              ]
-            },
-            {
-              "featureType": "road.highway",
-              "elementType": "geometry",
-              "stylers": [
-                {
-                  "color": "#ffffff"
-                }
-              ]
-            },
-            {
-              "featureType": "road.highway",
-              "elementType": "labels.text.fill",
-              "stylers": [
-                {
-                  "color": "#4c4c4c"
-                }
-              ]
-            },
-            {
-              "featureType": "road.local",
-              "elementType": "labels.text.fill",
-              "stylers": [
-                {
-                  "color": "#666666"
-                }
-              ]
-            },
-            {
-              "featureType": "transit",
-              "elementType": "geometry",
-              "stylers": [
-                {
-                  "color": "#000000"
-                }
-              ]
-            },
-            {
-              "featureType": "transit",
-              "elementType": "geometry.fill",
-              "stylers": [
-                {
-                  "color": "#000000"
-                }
-              ]
-            },
-            {
-              "featureType": "transit",
-              "elementType": "geometry.stroke",
-              "stylers": [
-                {
-                  "color": "#000000"
-                }
-              ]
-            },
-            {
-              "featureType": "transit.line",
-              "elementType": "geometry",
-              "stylers": [
-                {
-                  "visibility": "off"
-                }
-              ]
-            },
-            {
-              "featureType": "transit.station",
-              "elementType": "geometry",
-              "stylers": [
-                {
-                  "color": "#eeeeee"
-                }
-              ]
-            },
-            {
-              "featureType": "transit.station.rail",
-              "elementType": "geometry.fill",
-              "stylers": [
-                {
-                  "color": "#000000"
-                }
-              ]
-            },
-            {
-              "featureType": "transit.station.rail",
-              "elementType": "geometry.stroke",
-              "stylers": [
-                {
-                  "color": "#000000"
-                }
-              ]
-            },
-            {
-              "featureType": "water",
-              "elementType": "geometry",
-              "stylers": [
-                {
-                  "color": "#30a1c3"
-                }
-              ]
-            },
-            {
-              "featureType": "water",
-              "elementType": "labels.text.fill",
-              "stylers": [
-                {
-                  "color": "#9e9e9e"
-                }
-              ]
-            }
-          ],
-          'around': [
-            {
-              "elementType": "geometry",
-              "stylers": [
-                {
-                  "color": "#f5f5f5"
-                }
-              ]
-            },
-            {
-              "elementType": "labels.icon",
-              "stylers": [
-                {
-                  "visibility": "off"
-                }
-              ]
-            },
-            {
-              "elementType": "labels.text.fill",
-              "stylers": [
-                {
-                  "color": "#616161"
-                }
-              ]
-            },
-            {
-              "elementType": "labels.text.stroke",
-              "stylers": [
-                {
-                  "color": "#f5f5f5"
-                }
-              ]
-            },
-            {
-              "featureType": "administrative.land_parcel",
-              "elementType": "labels.text.fill",
-              "stylers": [
-                {
-                  "color": "#bdbdbd"
-                }
-              ]
-            },
-            {
-              "featureType": "administrative.locality",
-              "elementType": "labels",
-              "stylers": [
-                {
-                  "visibility": "off"
-                }
-              ]
-            },
-            {
-              "featureType": "landscape",
-              "elementType": "geometry",
-              "stylers": [
-                {
-                  "color": "#e6007e"
-                }
-              ]
-            },
-            {
-              "featureType": "landscape.man_made",
-              "elementType": "geometry",
-              "stylers": [
-                {
-                  "visibility": "off"
-                }
-              ]
-            },
-            {
-              "featureType": "poi",
-              "elementType": "geometry",
-              "stylers": [
-                {
-                  "color": "#d2ed7e"
-                }
-              ]
-            },
-            {
-              "featureType": "poi",
-              "elementType": "labels.text.fill",
-              "stylers": [
-                {
-                  "color": "#757575"
-                }
-              ]
-            },
-            {
-              "featureType": "poi.attraction",
-              "elementType": "geometry",
-              "stylers": [
-                {
-                  "color": "#d2ed7e"
-                }
-              ]
-            },
-            {
-              "featureType": "poi.business",
-              "elementType": "geometry",
-              "stylers": [
-                {
-                  "color": "#d2ed7e"
-                }
-              ]
-            },
-            {
-              "featureType": "poi.government",
-              "elementType": "geometry",
-              "stylers": [
-                {
-                  "color": "#eeeeee"
-                },
-                {
-                  "visibility": "off"
-                }
-              ]
-            },
-            {
-              "featureType": "poi.medical",
-              "elementType": "geometry",
-              "stylers": [
-                {
-                  "visibility": "off"
-                }
-              ]
-            },
-            {
-              "featureType": "poi.park",
-              "elementType": "geometry",
-              "stylers": [
-                {
-                  "color": "#d2ed7e"
-                }
-              ]
-            },
-            {
-              "featureType": "poi.park",
-              "elementType": "labels.text.fill",
-              "stylers": [
-                {
-                  "color": "#69a500"
-                }
-              ]
-            },
-            {
-              "featureType": "poi.park",
-              "elementType": "labels.text.stroke",
-              "stylers": [
-                {
-                  "color": "#ffffff"
-                }
-              ]
-            },
-            {
-              "featureType": "poi.place_of_worship",
-              "elementType": "geometry",
-              "stylers": [
-                {
-                  "visibility": "off"
-                }
-              ]
-            },
-            {
-              "featureType": "poi.school",
-              "elementType": "geometry",
-              "stylers": [
-                {
-                  "visibility": "off"
-                }
-              ]
-            },
-            {
-              "featureType": "poi.school",
-              "elementType": "labels",
-              "stylers": [
-                {
-                  "visibility": "off"
-                }
-              ]
-            },
-            {
-              "featureType": "poi.sports_complex",
-              "elementType": "geometry",
-              "stylers": [
-                {
-                  "visibility": "off"
-                }
-              ]
-            },
-            {
-              "featureType": "road",
-              "elementType": "geometry",
-              "stylers": [
-                {
-                  "visibility": "simplified"
-                }
-              ]
-            },
-            {
-              "featureType": "road",
-              "elementType": "geometry.stroke",
-              "stylers": [
-                {
-                  "weight": 1
-                }
-              ]
-            },
-            {
-              "featureType": "road.arterial",
-              "elementType": "labels.text.fill",
-              "stylers": [
-                {
-                  "color": "#666666"
-                }
-              ]
-            },
-            {
-              "featureType": "road.highway",
-              "elementType": "geometry",
-              "stylers": [
-                {
-                  "color": "#ffffff"
-                }
-              ]
-            },
-            {
-              "featureType": "road.highway",
-              "elementType": "labels.text.fill",
-              "stylers": [
-                {
-                  "color": "#4c4c4c"
-                }
-              ]
-            },
-            {
-              "featureType": "road.local",
-              "elementType": "labels.text.fill",
-              "stylers": [
-                {
-                  "color": "#666666"
-                }
-              ]
-            },
-            {
-              "featureType": "transit",
-              "elementType": "geometry",
-              "stylers": [
-                {
-                  "color": "#000000"
-                }
-              ]
-            },
-            {
-              "featureType": "transit",
-              "elementType": "geometry.fill",
-              "stylers": [
-                {
-                  "color": "#000000"
-                }
-              ]
-            },
-            {
-              "featureType": "transit",
-              "elementType": "geometry.stroke",
-              "stylers": [
-                {
-                  "color": "#000000"
-                }
-              ]
-            },
-            {
-              "featureType": "transit.line",
-              "elementType": "geometry",
-              "stylers": [
-                {
-                  "visibility": "off"
-                }
-              ]
-            },
-            {
-              "featureType": "transit.station",
-              "elementType": "geometry",
-              "stylers": [
-                {
-                  "color": "#eeeeee"
-                }
-              ]
-            },
-            {
-              "featureType": "transit.station.rail",
-              "elementType": "geometry.fill",
-              "stylers": [
-                {
-                  "color": "#000000"
-                }
-              ]
-            },
-            {
-              "featureType": "transit.station.rail",
-              "elementType": "geometry.stroke",
-              "stylers": [
-                {
-                  "color": "#000000"
-                }
-              ]
-            },
-            {
-              "featureType": "water",
-              "elementType": "geometry",
-              "stylers": [
-                {
-                  "color": "#30a1c3"
-                }
-              ]
-            },
-            {
-              "featureType": "water",
-              "elementType": "labels.text.fill",
-              "stylers": [
-                {
-                  "color": "#9e9e9e"
-                }
-              ]
-            }
-          ],
-          'campusmile': [
-            {
-              "elementType": "geometry",
-              "stylers": [
-                {
-                  "color": "#f5f5f5"
-                }
-              ]
-            },
-            {
-              "elementType": "labels.icon",
-              "stylers": [
-                {
-                  "visibility": "off"
-                }
-              ]
-            },
-            {
-              "elementType": "labels.text.fill",
-              "stylers": [
-                {
-                  "color": "#616161"
-                }
-              ]
-            },
-            {
-              "elementType": "labels.text.stroke",
-              "stylers": [
-                {
-                  "color": "#f5f5f5"
-                }
-              ]
-            },
-            {
-              "featureType": "administrative.land_parcel",
-              "elementType": "labels.text.fill",
-              "stylers": [
-                {
-                  "color": "#bdbdbd"
-                }
-              ]
-            },
-            {
-              "featureType": "administrative.locality",
-              "elementType": "labels",
-              "stylers": [
-                {
-                  "visibility": "off"
-                }
-              ]
-            },
-            {
-              "featureType": "landscape",
-              "elementType": "geometry",
-              "stylers": [
-                {
-                  "color": "#27ff4d"
-                }
-              ]
-            },
-            {
-              "featureType": "landscape.man_made",
-              "elementType": "geometry",
-              "stylers": [
-                {
-                  "visibility": "off"
-                }
-              ]
-            },
-            {
-              "featureType": "poi",
-              "elementType": "geometry",
-              "stylers": [
-                {
-                  "color": "#d2ed7e"
-                }
-              ]
-            },
-            {
-              "featureType": "poi",
-              "elementType": "labels.text.fill",
-              "stylers": [
-                {
-                  "color": "#757575"
-                }
-              ]
-            },
-            {
-              "featureType": "poi.attraction",
-              "elementType": "geometry",
-              "stylers": [
-                {
-                  "color": "#d2ed7e"
-                }
-              ]
-            },
-            {
-              "featureType": "poi.business",
-              "elementType": "geometry",
-              "stylers": [
-                {
-                  "color": "#d2ed7e"
-                }
-              ]
-            },
-            {
-              "featureType": "poi.government",
-              "elementType": "geometry",
-              "stylers": [
-                {
-                  "color": "#eeeeee"
-                },
-                {
-                  "visibility": "off"
-                }
-              ]
-            },
-            {
-              "featureType": "poi.medical",
-              "elementType": "geometry",
-              "stylers": [
-                {
-                  "visibility": "off"
-                }
-              ]
-            },
-            {
-              "featureType": "poi.park",
-              "elementType": "geometry",
-              "stylers": [
-                {
-                  "color": "#d2ed7e"
-                }
-              ]
-            },
-            {
-              "featureType": "poi.park",
-              "elementType": "labels.text.fill",
-              "stylers": [
-                {
-                  "color": "#69a500"
-                }
-              ]
-            },
-            {
-              "featureType": "poi.park",
-              "elementType": "labels.text.stroke",
-              "stylers": [
-                {
-                  "color": "#ffffff"
-                }
-              ]
-            },
-            {
-              "featureType": "poi.place_of_worship",
-              "elementType": "geometry",
-              "stylers": [
-                {
-                  "visibility": "off"
-                }
-              ]
-            },
-            {
-              "featureType": "poi.school",
-              "elementType": "geometry",
-              "stylers": [
-                {
-                  "visibility": "off"
-                }
-              ]
-            },
-            {
-              "featureType": "poi.school",
-              "elementType": "labels",
-              "stylers": [
-                {
-                  "visibility": "off"
-                }
-              ]
-            },
-            {
-              "featureType": "poi.sports_complex",
-              "elementType": "geometry",
-              "stylers": [
-                {
-                  "visibility": "off"
-                }
-              ]
-            },
-            {
-              "featureType": "road",
-              "elementType": "geometry",
-              "stylers": [
-                {
-                  "visibility": "simplified"
-                }
-              ]
-            },
-            {
-              "featureType": "road",
-              "elementType": "geometry.stroke",
-              "stylers": [
-                {
-                  "weight": 1
-                }
-              ]
-            },
-            {
-              "featureType": "road.arterial",
-              "elementType": "labels.text.fill",
-              "stylers": [
-                {
-                  "color": "#666666"
-                }
-              ]
-            },
-            {
-              "featureType": "road.highway",
-              "elementType": "geometry",
-              "stylers": [
-                {
-                  "color": "#ffffff"
-                }
-              ]
-            },
-            {
-              "featureType": "road.highway",
-              "elementType": "labels.text.fill",
-              "stylers": [
-                {
-                  "color": "#4c4c4c"
-                }
-              ]
-            },
-            {
-              "featureType": "road.local",
-              "elementType": "labels.text.fill",
-              "stylers": [
-                {
-                  "color": "#666666"
-                }
-              ]
-            },
-            {
-              "featureType": "transit",
-              "elementType": "geometry",
-              "stylers": [
-                {
-                  "color": "#000000"
-                }
-              ]
-            },
-            {
-              "featureType": "transit",
-              "elementType": "geometry.fill",
-              "stylers": [
-                {
-                  "color": "#000000"
-                }
-              ]
-            },
-            {
-              "featureType": "transit",
-              "elementType": "geometry.stroke",
-              "stylers": [
-                {
-                  "color": "#000000"
-                }
-              ]
-            },
-            {
-              "featureType": "transit.line",
-              "elementType": "geometry",
-              "stylers": [
-                {
-                  "visibility": "off"
-                }
-              ]
-            },
-            {
-              "featureType": "transit.station",
-              "elementType": "geometry",
-              "stylers": [
-                {
-                  "color": "#eeeeee"
-                }
-              ]
-            },
-            {
-              "featureType": "transit.station.rail",
-              "elementType": "geometry.fill",
-              "stylers": [
-                {
-                  "color": "#000000"
-                }
-              ]
-            },
-            {
-              "featureType": "transit.station.rail",
-              "elementType": "geometry.stroke",
-              "stylers": [
-                {
-                  "color": "#000000"
-                }
-              ]
-            },
-            {
-              "featureType": "water",
-              "elementType": "geometry",
-              "stylers": [
-                {
-                  "color": "#30a1c3"
-                }
-              ]
-            },
-            {
-              "featureType": "water",
-              "elementType": "labels.text.fill",
-              "stylers": [
-                {
-                  "color": "#9e9e9e"
-                }
-              ]
-            }
-          ]
-        }
       </script>
     </div>
-    <script src="js/main.min.js"></script>
-    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBQgtJFh0634rJ5JzuqRBFRVILTU2jVA0w&amp;callback=initMap"></script>
+    <script src="/js/main.min.js"></script>
   </body>
 </html>
