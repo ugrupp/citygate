@@ -55,7 +55,12 @@
 	        <p><br><?php _e( 'Fahren Sie mit der Maus über die angezeigten Icons auf der Karte.', 'enfold_child' ); ?>
 		       <br><?php _e( 'Hier werden Ihnen weitere Informationen angezeigt.', 'enfold_child' ); ?>
 		    </p>
-		    <p style="float:right;margin-top: -50px;"><a target="_blank" href="<?php echo get_stylesheet_directory_uri(); ?>/pdf/CityGate_Karte_Erreichbarkeit.pdf"><img alt="Karte drucken (PDF)" src="<?php echo get_stylesheet_directory_uri(); ?>/images/print.png"></a></p>
+			<table border="0" class="print">
+				<tr>
+					<td><a class="blue" target="_blank" href="<?php echo get_stylesheet_directory_uri(); ?>/pdf/CityGate_Karte_Erreichbarkeit.pdf">PDF drucken (Deutsch)</a></td>
+					<td><a class="blue" target="_blank" href="<?php echo get_stylesheet_directory_uri(); ?>/pdf/CityGate_Karte_Erreichbarkeit-en.pdf">Print PDF (English)</a></td>
+				</tr>
+			</table>
         </div>
 
         <a class="c-modal__close" href="javascript:void(0);" data-map-modal-close>
@@ -97,7 +102,12 @@
 			<p><?php _e( 'Fahren Sie mit der Maus über die angezeigten Icons auf der Karte.', 'enfold_child' ); ?>
 						<br><?php _e( 'Hier werden Ihnen weitere Informationen angezeigt.', 'enfold_child' ); ?>
 		    </p>
-		    <p style="float:right;margin-top: -50px;"><a target="_blank" href="<?php echo get_stylesheet_directory_uri(); ?>/pdf/CityGate_Karte_Umgebung.pdf"><img alt="Karte drucken (PDF)" src="<?php echo get_stylesheet_directory_uri(); ?>/images/print.png"></a></p>
+		    <table border="0" class="print">
+				<tr>
+					<td><a class="orange" target="_blank" href="<?php echo get_stylesheet_directory_uri(); ?>/pdf/CityGate_Karte_Umgebung.pdf">PDF drucken (Deutsch)</a></td>
+					<td><a class="orange" target="_blank" href="<?php echo get_stylesheet_directory_uri(); ?>/pdf/CityGate_Karte_Umgebung-en.pdf">Print PDF (English)</a></td>
+				</tr>
+			</table>
 
 
         </div>
@@ -138,7 +148,12 @@
 	        <p><br><?php _e( 'Fahren Sie mit der Maus über die angezeigten Icons auf der Karte.', 'enfold_child' ); ?>
 		       <br><?php _e( 'Hier werden Ihnen weitere Informationen angezeigt.', 'enfold_child' ); ?>
 		    </p>
-			<p style="float:right;margin-top: -50px;"><a target="_blank" href="<?php echo get_stylesheet_directory_uri(); ?>/pdf/CityGate_Karte_Campus.pdf"><img alt="Karte drucken (PDF)" src="<?php echo get_stylesheet_directory_uri(); ?>/images/print.png"></a></p>
+		    <table border="0" class="print">
+				<tr>
+					<td><a class="green" target="_blank" href="<?php echo get_stylesheet_directory_uri(); ?>/pdf/CityGate_Karte_Campus.pdf">PDF drucken (Deutsch)</a></td>
+					<td><a class="green" target="_blank" href="<?php echo get_stylesheet_directory_uri(); ?>/pdf/CityGate_Karte_Campus-en.pdf">Print PDF (English)</a></td>
+				</tr>
+			</table>
         </div>
 
         <a class="c-modal__close" href="javascript:void(0);" data-map-modal-close>
