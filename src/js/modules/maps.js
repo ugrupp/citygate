@@ -54,13 +54,12 @@ class MapModal {
     L.tileLayer.colorizr('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
       attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
       colorize: function(pixel) {
-        const grayscaled = (pixel.r + pixel.g + pixel.b) / 3;
-        const brightness = 1.25;
+        const brightness = 1.15;
 
         return {
-          r: (grayscaled * color.r * brightness) / 255,
-          g: (grayscaled * color.g * brightness) / 255,
-          b: (grayscaled * color.b * brightness) / 255,
+          r: (pixel.r * color.r * brightness) / 255,
+          g: (pixel.g * color.g * brightness) / 255,
+          b: (pixel.b * color.b * brightness) / 255,
         };
       },
     }).addTo(this.map);
